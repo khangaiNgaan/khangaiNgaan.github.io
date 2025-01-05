@@ -4,7 +4,25 @@
     font-weight: 700 ;
 }
 
-h1 {
+@font-face {
+    font-family: 'Noto Sans CS';
+    src: url('./Fonts/NotoSansSC-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Serif CS';
+    src: url('./Fonts/NotoSerifSC-SemiBold.ttf') format('truetype');
+}
+
+h1,
+h2,
+h3 {
     font-family: 'Noto Serif';
     font-weight: 700;
+}
+
+p,
+li,
+td {
+    font-family: 'Noto Sans CS';
 }

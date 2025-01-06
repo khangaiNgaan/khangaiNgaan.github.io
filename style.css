@@ -63,3 +63,7 @@ small {
 .grey {
     color: #adadad;
 }
+
+html::-webkit-scrollbar { /* 隐藏滚动条 */
+    width: 0px;
+}

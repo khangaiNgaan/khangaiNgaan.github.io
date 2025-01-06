@@ -38,7 +38,7 @@ li {
 table {
     font-family: 'Open Sans';
     font-size: 14px;
-    font-weight:600;
+    font-weight:500;
 }
 
 small {
@@ -53,7 +53,7 @@ small {
 
 .serif-title-CS {
     font-family: 'Noto Serif CS';
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .link {

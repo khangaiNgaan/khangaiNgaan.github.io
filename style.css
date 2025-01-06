@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: 'Noto Serif CS';
-    src: url('./Fonts/NotoSerifSC-ExtraBold.ttf') format('truetype');
+    src: url('./Fonts/NotoSerifSC-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -38,7 +38,6 @@ li {
 table {
     font-family: 'Open Sans';
     font-size: 14px;
-    font-weight:500;
 }
 
 small {
@@ -59,7 +58,6 @@ small {
 .link {
     font-family: 'Open Sans';
     font-size: 16px;
-    font-weight: 500;
 }
 
 .grey {

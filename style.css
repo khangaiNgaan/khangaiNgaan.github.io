@@ -11,18 +11,57 @@
 
 @font-face {
     font-family: 'Noto Serif CS';
-    src: url('./Fonts/NotoSerifSC-Regular.ttf') format('truetype');
+    src: url('./Fonts/NotoSerifSC-ExtraBold.ttf') format('truetype');
 }
 
-h1,
-h2,
-h3 {
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./Fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+h1 {
     font-family: 'Noto Serif';
     font-weight: 700;
 }
 
-p,
-li,
-td {
+h2,
+h3 {
     font-family: 'Noto Sans CS';
+    font-weight: 700;
+}
+
+p,
+li {
+    font-family: 'Noto Sans CS';
+}
+
+table {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 700;
+}
+
+small {
+    font-family: 'Open Sans';
+    font-size: 12px;
+}
+
+.serif-title {
+    font-family: 'Noto Serif';
+    font-weight: 700;
+}
+
+.serif-title-CS {
+    font-family: 'Noto Serif CS';
+    font-weight: 700;
+}
+
+.link {
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.grey {
+    color: #adadad;
 }

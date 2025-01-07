@@ -60,3 +60,20 @@ small {
 .grey {
     color: #adadad;
 }
+
+body {
+    width: 600px;
+    margin: 0 auto;
+}
+
+body {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px 20px 20px 20px;
+    background-color: #ffffff;
+    border: 0px;
+}
+
+html {
+    background-color: #dbe3e6;
+}

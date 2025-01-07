@@ -1,27 +1,17 @@
 @font-face {
     font-family: 'Noto Serif';
-    src: url('./Fonts/NotoSerif-ExtraBold.ttf') format('truetype');
+    src: url('../Fonts/NotoSerif-ExtraBold.ttf') format('truetype');
     font-weight: 700 ;
-}
-
-@font-face {
-    font-family: 'Noto Sans CS';
-    src: url('./Fonts/NotoSansSC-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Noto Serif CS';
-    src: url('./Fonts/NotoSerifSC-Bold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url('./Fonts/OpenSans-Bold.ttf') format('truetype');
 }
 
 h1 {
     font-family: 'Noto Serif';
     font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Noto Sans CS';
+    src: url('../Fonts/NotoSansSC-Regular.ttf') format('truetype');
 }
 
 h2,
@@ -35,6 +25,11 @@ li {
     font-family: 'Noto Sans CS';
 }
 
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../Fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
 table {
     font-family: 'Open Sans';
     font-size: 14px;
@@ -45,9 +40,14 @@ small {
     font-size: 12px;
 }
 
-.serif-title {
-    font-family: 'Noto Serif';
-    font-weight: 700;
+.link {
+    font-family: 'Open Sans';
+    font-size: 16px;
+}
+
+@font-face {
+    font-family: 'Noto Serif CS';
+    src: url('../Fonts/NotoSerifSC-Bold.ttf') format('truetype');
 }
 
 .serif-title-CS {
@@ -55,13 +55,13 @@ small {
     font-weight: 500;
 }
 
-.link {
-    font-family: 'Open Sans';
-    font-size: 16px;
-}
-
 .grey {
     color: #adadad;
+}
+
+body {
+    width: 600px;
+    margin: 0 auto;
 }
 
 body {

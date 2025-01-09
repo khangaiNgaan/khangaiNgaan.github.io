@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>without caffeine</title>
+    <link rel="icon" href="../favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="../favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../css/style.css">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
+  </head>
+  <body>
+    <header>
+      <h1>without caffeine</h1>
+      <nav>
+        <a href="../index.html">Home</a> &nbsp;&nbsp;
+        <a href="../pages/categories.html">Categories</a> &nbsp;&nbsp;
+        <a href="../pages/archive.html">Archive</a> &nbsp;&nbsp;
+        <a href="../pages/about.html">About</a> &nbsp;&nbsp;
+      </nav>
+    </header>
+    <main>
+      <article>
+        <h2>Minecraft 服务器搭建笔记</h2>
+        <p><div class="date">2025-1-7 &nbsp;&nbsp;
+        Categories: <a href="../categories/wellbeing.html">digital wellbeing</a></div></p>
+        <br>
+        <h3>前言</h3>
+        <p>23年年末，我在美区App Store上花费6.99刀购入了Minecraft Pocket Edition。我花费了很多精力在寻找可靠的美区礼品卡上。Mojang的logo变了，虽然其实我早就有看到过它的新logo了。我有种恍如隔世的感觉。</p>
+        <p>24年的除夕夜，我和我堂哥局域网联机玩Minecraft，玩的生存模式。伐木，搭火柴盒，下矿——似曾相识，仿佛又重回了小学的某个节假日夜晚。这听起来非常nostalgic，但那个晚上我真的特别开心。</p>
+        <p>24年8月，我的美区Apple Account被停用，我申诉也没有救回来。号是我自己注册的，电话号绑定的是自己的Google Voice。我至今仍不知道停用的原因，也许是因为这个Google Voice，也许不是。</p>
+        <p>24年11月，我最终长期请假，离开学校的日子，我呆在自己的屋里，孤独感涌上心头。我不知道我该做点什么好。很多问题盘旋在我的脑海里，得不到解答。11月，我拿到了我的iPad，上面有因Apple Account停用而导致的很久没有更新的Minecraft PE 1.20 。独自玩Minecraft是一种孤独的体验。我出生在雪地，好几次因为和差点因为踩进松雪而死，后来出门必带鹅卵石台阶。木制5x5小屋，篝火点燃，在雪地里，然而只有我一个人。</p>
+        <p>我想我需要一个服务器。</p>
+        <h3>搭建</h3>
+        <p>服务器是在阿里云上面租的轻量应用服务器，2核2GB内存，3Mbps带宽，系统我选的是Windows Server 2022（为了我的生命健康暂时先用Windows Server）。配置凑合，价钱也相对合理，于是租了一年。打开阿里云的控制台就可以远程连接到服务器了。</p>
+        <p><a href="https://www.aliyun.com/benefit/select/ecs?utm_content=se_1019873548">服务器可以在这里租到</a></p>
+        <p>由于我目前的主力电脑是一台松下CF-RZ6，性能非常有限，跑1.18后续版本的Minecraft会严重卡顿。退而求其次，我决定搭建Java版1.14.4的服务器。首先需要在服务器上安装Java，其次则是PaperMC，一个优化版的Minecraft Java版服务端。</p>
+        <p><a href="https://www.java.com/zh-TW/download/manual.jsp">Java下载链接</a></p>
+        <p><a href="https://papermc.io/downloads/all">PaperMC下载链接</a></p>
+        <p>在桌面创建一个文件夹，命名为"mcserver"，将下载好的.jar文件重命名为server.jar，然后打开命令提示符（cmd），导航到服务器文件夹所在位置，例如：</p>
+        <div class="code">cd C:\Users\Administrator\Desktop\mcserver</div>
+        <p>启动服务器：</p>
+        <div class="code">java -Xmx1024M -Xms1024M -jar server.jar nogui</div>
+        <p>首次启动会在服务器目录下生成一个eula.txt文件，需要打开这个文件把eula=false修改为eula=true，保存并关闭，这是在同意Mojang的服务条款。重复一次上述操作启动服务器，这样服务器就已经启动好了，这个运行窗口就是服务器的控制台，可以在这里输入管理命令，比如</p>
+        <p>查看在线玩家：</p>
+        <div class="code">list</div>
+        <p>踢出玩家：</p>
+        <div class="code">kick player</div>
+        <p>关闭服务器：</p>
+        <div class="code">stop</div>
+        <p>可以使用Windows记事本来编辑服务器的server.properties文件，比如
+        <p>服务器的欢迎信息：</p>
+        <div class="code">motd=Server of Neko</div>
+        <p>最大玩家数：</p>
+        <div class="code">max-players=5</div>
+        <p>是否验证玩家正版账号：</p>
+        <div class="code">online-mode=false</div>
+        <p>重启生效。</p>
+        <p>然后还有非常重要的一步。登录到阿里云控制台，点击"实例ID"进入服务器的详情页，点击"防火墙"，点击"添加规则"，协议选择TCP，端口范围填写25565，然后确认规则。</p>
+        <p>这样服务器搭建就算是完成了。复制你的服务器的公网IP地址，进入Minecraft添加服务器，然后即可开始游玩。</p>
+        <h3>结语</h3>
+        <p>其实我在搭建过程中遇到了不少问题，比如我最开始使用的是官方的Vallina服务端，但是每次连接上之后游玩不到两分钟就会莫名其妙断开连接，改用PaperMC后问题解决。我至今仍然不是很清楚这个问题的原因。</p>
+        <p>我原以为这会是一段艰难的经历，但当我动手做起来的时候，这比我想象的要简单很多。实际上，人的一生就是不断遇到问题然后解决问题的过程。</p>
+        <br>
+      </article>
+    </main>
+    <footer>
+      <hr>
+      <p><small>Copyright © 2025 khangai Ngaan. All rights reserved.</small></p>
+    </footer>
+  </body>
+  </html>

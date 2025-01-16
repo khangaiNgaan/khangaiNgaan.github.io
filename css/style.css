@@ -3,12 +3,100 @@
     src: url(../Fonts/Workbench-Regular.ttf);
 }
 
+@font-face {
+    font-family: 'Sans';
+    src: url(../Fonts/NotoSansSC-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../Fonts/OpenSans-Bold.ttf);
+}
+
 .title {
     font-family: 'workbench';
     font-size: 2em;
     color: white;
+    padding: 20px;
+}
+
+.content {
+    font-family: 'Sans';
+    font-size: 1em;
+    color: white;
+    padding: 20px;
 }
 
 html {
     background-color: black;
+    color: white;
+}
+
+a {
+    color: white;
+    font-family: 'Open Sans';
+}
+
+a:hover {
+    color: #000;
+    font-family: 'Open Sans';
+    background-color: white;
+}
+
+.navbar {
+    background-color: black;
+    color: white;
+    font-family: 'Open Sans';
+    padding: 20px;
+}
+
+.sidebar {
+    width: 120px;
+    height: 100%;
+    position: fixed;
+    background-color: black;
+    color: white;
+    font-family: 'Open Sans';
+    padding: 10px;
+    line-height: 1.8;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .navbar {
+        display: block;
+    }
+    .content {
+        margin-left: 0;;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .navbar {
+        display: none;
+    }
+    .sidebar {
+        display: block;
+    }
+    .content {
+        margin-left: 140px;
+    }
+}
+
+.paragraph-title {
+    font-family: 'Sans';
+    font-size: 1.5em;
+    color: white;
+    padding: 5px;
+    line-height: 2;
+}
+
+.open-title {
+    font-family: 'Open Sans';
+    font-size: 1.5em;
+    color: white;
+    padding: 5px;
+    line-height: 2;
 }

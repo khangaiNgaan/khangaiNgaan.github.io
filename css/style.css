@@ -25,6 +25,7 @@
     font-size: 1em;
     color: white;
     padding: 20px;
+    border: 1px solid #aaa;
 }
 
 html {
@@ -34,12 +35,10 @@ html {
 
 a {
     color: white;
-    font-family: 'Open Sans';
 }
 
 a:hover {
     color: #000;
-    font-family: 'Open Sans';
     background-color: white;
 }
 
@@ -61,7 +60,7 @@ a:hover {
     line-height: 1.8;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
     .sidebar {
         display: none;
     }
@@ -73,7 +72,7 @@ a:hover {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
     .navbar {
         display: none;
     }
@@ -88,6 +87,22 @@ a:hover {
 .paragraph-title {
     font-family: 'Sans';
     font-size: 1.5em;
+    color: white;
+    padding: 5px;
+    line-height: 2;
+}
+
+.paragraph-title-2 {
+    font-family: 'Sans';
+    font-size: 1.2em;
+    color: white;
+    padding: 5px;
+    line-height: 2;
+}
+
+.paragraph {
+    font-family: 'Sans';
+    font-size: 1em;
     color: white;
     padding: 5px;
     line-height: 2;

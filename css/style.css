@@ -30,7 +30,7 @@
     font-size: 1em;
     color: white;
     padding: 20px;
-    border: 1px solid #aaa;
+    border: 2px solid #aaa;
 }
 
 html {
@@ -62,7 +62,7 @@ a:hover {
     font-family: 'Open Sans';
     padding: 10px;
     line-height: 1.8;
-    border:1px solid #aaa;
+    border:2px solid #aaa;
 }
 
 @media screen and (max-width: 650px) {
@@ -85,7 +85,7 @@ a:hover {
         display: block;
     }
     .content {
-        margin-left: 145px;
+        margin-left: 150px;
         max-width: 600px;
     }
 }

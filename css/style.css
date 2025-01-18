@@ -21,7 +21,7 @@
 .title {
     font-family: 'workbench';
     font-size: 2em;
-    color: white;
+    color: #1b3059;
     padding: 20px;
 }
 
@@ -34,22 +34,22 @@
 }
 
 html {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 a {
-    color: white;
+    color: #000;
 }
 
 a:hover {
-    color: #000;
-    background-color: white;
+    color: #fff;
+    background-color: #000;
 }
 
 .navbar {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: #000;
     font-family: 'Open Sans';
     padding: 20px;
 }
@@ -58,7 +58,7 @@ a:hover {
     width: 120px;
     height: 300px;
     position: fixed;
-    color: white;
+    color: #000;
     font-family: 'Open Sans';
     padding: 10px;
     line-height: 1.8;
@@ -93,7 +93,7 @@ a:hover {
 .paragraph-title {
     font-family: 'Sans';
     font-size: 1.5em;
-    color: white;
+    color: black;
     padding: 5px;
     line-height: 2;
 }
@@ -101,7 +101,7 @@ a:hover {
 .paragraph-title-2 {
     font-family: 'Sans';
     font-size: 1.2em;
-    color: white;
+    color: black;
     padding: 5px;
     line-height: 2;
 }
@@ -109,7 +109,7 @@ a:hover {
 .paragraph {
     font-family: 'Sans';
     font-size: 1em;
-    color: white;
+    color: black;
     padding: 5px;
     line-height: 2;
 }
@@ -117,7 +117,7 @@ a:hover {
 p {
     font-family: 'Sans';
     font-size: 1em;
-    color: white;
+    color: black;
     padding: 5px;
     line-height: 2;
 }
@@ -125,7 +125,7 @@ p {
 .open-title {
     font-family: 'Open Sans';
     font-size: 1.5em;
-    color: white;
+    color: black;
     padding: 5px;
     line-height: 2;
 }
@@ -133,7 +133,7 @@ p {
 .Copyright {
     font-family: 'Open Sans';
     font-size: 0.8em;
-    color: white;
+    color: black;
     padding: 5px;
     line-height: 1;
 }
@@ -141,7 +141,7 @@ p {
 .date {
     font-family: 'Open Sans';
     font-size: 0.8em;
-    color: white;
+    color: black;
     padding: 5px;
     line-height: 1;
 }
@@ -149,10 +149,10 @@ p {
 .code {
     font-family: 'Mono';
     font-size: 1em;
-    color: #fff;
-    background-color: #1f1f1f;
+    color: #1f1f1f;
+    background-color: #e0e0e0;
     padding: 10px;
-    border: 2px solid #1f1f1f;
+    border: 2px solid #e0e0e0;
     margin: 20px 0;
     width: 100%;
     box-sizing: border-box;

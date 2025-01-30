@@ -34,7 +34,7 @@ body {
 }
 
 .text {
-    font-family: 'unifont';
+    font-family: 'unifont', sans-serif;
     font-size: 14px;
     margin-left: 40px;
     margin-top: 10px;
@@ -42,7 +42,7 @@ body {
 }
 
 .mail {
-    font-family: 'unifont';
+    font-family: 'unifont', sans-serif;
     font-size: 12px;
     float: right;
     margin-top: 5px;

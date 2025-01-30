@@ -48,7 +48,7 @@ body {
 }
 
 .copyright {
-    font-family: 'unifont';
+    font-family: 'unifont', sans-serif;
     font-size: 12px;
     margin-left: 10px;
     margin-top: 5px;
@@ -56,7 +56,7 @@ body {
 }
 
 table {
-    font-family: 'unifont';
+    font-family: 'unifont', sans-serif;
     font-size: 16px;
     margin-left: 10px;
     line-height: 2;
@@ -70,14 +70,14 @@ table {
 }
 
 .title {
-    font-family: 'unifont';
+    font-family: 'unifont', sans-serif;
     font-size: 18px;
     margin-left: 10px;
     margin-top: 10px;
 }
 
 p {
-    font-family: 'unifont';
+    font-family: 'unifont', sans-serif;
     font-size: 16px;
     margin-left: 10px;
     line-height: 1.5;
@@ -88,14 +88,14 @@ ul {
 }
 
 li {
-    font-family: 'unifont';
+    font-family: 'unifont', sans-serif;
     font-size: 16px;
     margin-left: 10px;
     line-height: 1.5;
 }
 
 .date {
-    font-family: 'unifont';
+    font-family: 'unifont', sans-serif;
     font-size: 14px;
     text-align: right;
     margin-right: 10px;

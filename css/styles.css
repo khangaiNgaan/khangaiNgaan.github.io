@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Chicago';
+    src: url(../Fonts/Chicago.ttf);
+}
+
+@font-face {
+    font-family: 'unifont';
+    src: url(../Fonts/unifont-16.0.02.otf);
+}
+
+html {
+    background-color: #555;
+}
+
+.chicago {
+    font-family: 'Chicago';
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content {
+    flex: 1;
+}
+
+body {
+    background-color: #fff;
+    color: black;
+    width: 600px;
+    height: 94vh;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid black;
+    outline: 2px solid black;
+    outline-offset: -4px;
+}
+
+.dashedline {
+    width: 96%;
+    border-top:1px dotted #555;
+    margin: 20px auto;
+}
+
+.copyright {
+    font-family: 'unifont';
+    font-size: 12px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+table {
+    font-family: 'unifont';
+    font-size: 16px;
+    margin-left: 10px;
+    line-height: 2;
+    border-collapse: collapse;
+}

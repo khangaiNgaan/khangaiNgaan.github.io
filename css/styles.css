@@ -62,3 +62,12 @@ table {
     line-height: 2;
     border-collapse: collapse;
 }
+
+a {
+    color: #4f85f6;
+}
+
+a:hover {
+    background-color: #4f85f6;
+    color: #fff;
+}

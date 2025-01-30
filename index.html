@@ -18,11 +18,27 @@
       <div class="chicago">Caffeine Scriptorium</div>
       <div class="mail">ngaantsenkoh@outlook.com</div><br>
       <div class="dashedline"></div>
-      <div class="text">本站已运行 25 日<br>文章共计 0 篇</div>
+      <div class="text">本站已运行 <span id="days">0</span> 日<br>文章共计 0 篇</div>
       <div class="button-box">
         <a href="./pages/categories.html"><button class="button">Categories</button></a>
         <a href="./pages/archives.html"><button class="button">Archives</button></a>
       </div>
     </div>
+    <script>
+      function calcdays() {
+        const startdate = new Date('2025-01-05');
+        const today = new Date();
+        const difference = today - startdate; 
+        const differenceindays = Math.floor(difference / (1000 * 60 * 60 * 24));
+        return differenceindays;
+      }
+
+      function displaydays() {
+        const daysElement = document.getElementById('days')
+        daysElement.textContent = calcdays();
+      }
+
+      displaydays();
+    </script>
   </body>
 </html>

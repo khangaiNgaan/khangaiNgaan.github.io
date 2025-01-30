@@ -33,7 +33,7 @@ body {
     background-color: #fff;
     color: black;
     width: 600px;
-    height: 94vh;
+    height: 100%;
     margin: auto;
     padding: 10px;
     border: 1px solid black;
@@ -61,6 +61,45 @@ table {
     margin-left: 10px;
     line-height: 2;
     border-collapse: collapse;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.title {
+    font-family: 'unifont';
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+p {
+    font-family: 'unifont';
+    font-size: 16px;
+    margin-left: 10px;
+    line-height: 1.5;
+}
+
+ul {
+    list-style-type: square;
+}
+
+li {
+    font-family: 'unifont';
+    font-size: 16px;
+    margin-left: 10px;
+    line-height: 1.5;
+}
+
+.date {
+    font-family: 'unifont';
+    font-size: 14px;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 15px;
 }
 
 a {

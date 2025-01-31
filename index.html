@@ -18,7 +18,7 @@
       <div class="chicago">Caffeine Scriptorium</div>
       <div class="mail">ngaantsenkoh@outlook.com</div><br>
       <div class="dashedline"></div>
-      <div class="text">本站已运行 <span id="days">0</span> 日<br>文章共计 1 篇</div>
+      <div class="text">本站已运行 <span id="days"></span> 日 <spam id="time"></spam><br>文章共计 1 篇</div>
       <div class="button-box">
         <a href="./pages/archives.html"><button class="button">Archives</button></a>
         <a href="./pages/categories.html"><button class="button2">Categories</button></a>
@@ -27,18 +27,31 @@
     <script>
       function calcdays() {
         const startdate = new Date('2025-01-05');
-        const today = new Date();
-        const difference = today - startdate; 
-        const differenceindays = Math.floor(difference / (1000 * 60 * 60 * 24));
-        return differenceindays;
+        const now = new Date();
+        const difference = now - startdate; 
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        return { days, hours, minutes, seconds };
       }
 
-      function displaydays() {
-        const daysElement = document.getElementById('days')
-        daysElement.textContent = calcdays();
+      function formatTime(number) {
+        return number.toString().padStart(2, '0');
       }
 
-      displaydays();
+      function displayTime() {
+        const timeData = calcdays();
+        const daysElement = document.getElementById('days');
+        daysElement.textContent = '${timeData.days}';
+
+        const formattedTime = '${formatTime(timeData.hours)}:${formatTime(timeData.minutes)}:${formatTime(timeData.seconds)}';
+        const timeElement = document.getElementById('time');
+        timeElement.textContent = '${formattedTime}';
+      }
+      setInterval(displayTime, 1000);
+      displayTime();
     </script>
   </body>
 </html>

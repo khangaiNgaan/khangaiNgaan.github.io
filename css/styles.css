@@ -9,7 +9,7 @@
 }
 
 html {
-    background-color: #555;
+    background-color: #999;
 }
 
 .chicago {
@@ -77,6 +77,14 @@ table {
 }
 
 p {
+    font-family: 'unifont', sans-serif;
+    font-size: 14px;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 2;
+}
+
+.index {
     font-family: 'unifont', sans-serif;
     font-size: 16px;
     margin-left: 10px;

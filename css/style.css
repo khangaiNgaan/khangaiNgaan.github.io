@@ -62,6 +62,13 @@ body {
     margin-bottom: 20px;
 }
 
+@media (max-width: 670px) {
+    body {
+        border: none;
+        outline: none;
+    }
+}
+
 .date {
     font-family: 'unifont', sans-serif;
     font-size: 14px;

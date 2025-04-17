@@ -16,6 +16,15 @@ p {
     line-height: 2;
 }
 
+.textbox {
+    background-color: #cdd6e2;
+}
+
+p.highlight {
+    background-color: #b9c2ce;
+    line-height: 1.6;
+}
+
 html {
     background-color: #d8e3ed;
 }

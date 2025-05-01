@@ -20,6 +20,20 @@ p {
     background-color: #ced9e3;
 }
 
+pre code {
+    display: block;
+    font-family: 'unifont';
+    font-size: 14px;
+    color: #444f5d;
+    line-height: 2;
+    background-color: #ced9e3;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: pre;
+    scrollbar-width: 5px;
+    scrollbar-color: #b5c0ce #ced9e3;
+}
+
 p.highlight {
     background-color: #b7c2d0;
     line-height: 1.6;
@@ -60,18 +74,18 @@ a:hover {
 body {
     background-color: #d8e3ed;
     color: #444f5d;
-    max-width: 550px;
+    max-width: 570px;
     height: 100%;
     margin: auto;
-    padding: 50px;
-    border: 1px solid #444f5d;
-    outline: 1px solid #444f5d;
-    outline-offset: -2px;
+    padding: 50px 100px ;
+    border: 3px solid #444f5d;
+    outline: 2px solid #b5c0ce;
+    outline-offset: -4px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-@media (max-width: 670px) {
+@media (max-width: 800px) {
     body {
         border: none;
         outline: none;

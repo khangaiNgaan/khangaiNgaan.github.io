@@ -13,6 +13,93 @@
       <div class="content">
         <div class="header">
             <span class="title">在Arch上安装CDE</span>
-            <span class="date">2025-04-17</span>
+            <span class="date">2025-04-17 / 4-30</span>
         </div>
         <br>
+        <p class="highlight">简介</p>
+        <p>通用桌面环境（Common Desktop Environment, CDE）是一个基于Motif的桌面环境，最初由HP、IBM、Sun等公司合作开发，在1990年代作为商用Unix工作站的标准桌面环境被广泛使用，直到2000年代初随着开源桌面环境（KDE, GNOME等）的兴起而被逐渐取代。2012年，CDE宣布开源，随后被移植到Linux上，并被维护至今。</p>
+        <p>目前CDE的代码主要托管在 <a href="https://sourceforge.net/projects/cdesktopenv/">SourceForge</a> 上。</p>
+        <p class="highlight">准备工作</p>
+        <p>启动计算机，进入Arch Linux，在tty中登入root账户。使用有线或无线方式连接互联网，并确保网络连线正常。开始之前，最好先滚动更新一下系统。</p>
+        <pre><code># pacman -Syu</code></pre>
+        <p>我在安装前把KDE Plasma卸载了，如果你有安装别的桌面环境，可能得先停掉正在运行的图形界面服务。</p>
+        <p class="highlight">安装依赖</p>
+        <p>在安装CDE之前，需要先安装一些依赖包，这里是：</p>
+        <pre><code># pacman -S xorg xorg-server-devel gcc dnsutils git libxinerama libxss ncurses openmotif rpcbind xbitmaps bison flex tcl</code></pre>
+        <p>还有ksh和ncompress：</p>
+        <pre><code># git clone https://aur.archlinux.org/ksh.git
+# git clone https://aur.archlinux.org/ncompress.git</code></pre>
+        <p>然后进入这两个目录，编译安装：</p>
+        <pre><code># cd ksh
+# makepkg -si
+# cd ../ncompress
+# makepkg -si</code></pre>
+        <p>如果你已经安装了yay也可用yay安装：</p>
+        <pre><code># yay -S ksh ncompress</code></pre>
+        <p>手动创建/lib/cpp符号链接：</p>
+        <pre><code># ln -s /usr/bin/cpp /lib/cpp</code></pre>
+        <p>这是必要的，如果不这么做，后续的编译过程会遇到问题。（文档说的，，，）</p>
+        <p class="highlight">安装CDE</p>
+        <p>登出root账户，登入你的用户账户，以避免使用root账户登录图形界面。</p>
+        <pre><code># exit</code></pre>
+        <p>克隆CDE仓库：</p>
+        <pre><code>$ git clone https://git.code.sf.net/p/cdesktopenv/code cdesktopenv-code</code></pre>
+        <p>编译CDE：</p>
+        <pre><code>$ ./autogen.sh
+$ ./configure
+$ make
+$ sudo make install</code></pre>
+        <p>这个过程可能需要很长时间，安装完成后就可以启动CDE了。</p>
+        <p class="highlight">启动CDE</p>
+        <p>在tty中输入：</p>
+        <pre><code>$ startx /usr/dt/bin/Xsession</code></pre>
+        <p>或者你也可以启动CDE自带的dtlogin登录管理器：</p>
+        <pre><code>$ /usr/dt/bin/dtlogin -daemon</code></pre>
+        <p>如果需要开机自动启动dtlogin的话，可以用任意文本编辑器在/etc/systemd/system/目录下创建一个名为dtlogin.service的服务单元文件：</p>
+        <pre><code>$ sudo vim /etc/systemd/system/dtlogin.service</code></pre>
+        <p>添加以下内容：</p>
+        <pre><code>[Unit]
+Description=CDE Login Manager
+Requires=rpcbind.service
+After=systemd-user-sessions.service
+          
+[Service]
+ExecStart=/usr/dt/bin/dtlogin
+
+[Install]
+Alias=display-manager.service</code></pre>
+        <p>保存并退出：</p>
+        <pre><code>:wq</code></pre>
+        <p>启用服务：</p>
+        <pre><code>$ sudo systemctl enable dtlogin.service</code></pre>
+        <p>重启计算机，CDE就会自动启动了。</p>
+        <p class="highlight">使用</p>
+        <p>窗口顶部标题栏，左上角按钮（一个减号）单击可以唤出菜单栏，双击关闭窗口，右上角两个按钮，圆点单击可以最小化窗口到桌面（或者理论上其实是叫做Workspace）左侧，方框单击可以最大化窗口。</p>
+        <p>最下面那条看着像dock栏的东西叫做Front Panel，你可以从这里快捷启动一些应用程序。</p>
+        <p>右二是Style Manager，你可以在这进行一些个性化设置，比如在Color中，你可以选择不同的Palettes来调整UI颜色主题，比如我最喜欢的是Orchid。</p>
+        <p>我遇到了在Application Manager里打不开Chromium浏览器的问题，因为Chromium的可执行文件名是chromium而不是chromium-browser，需要手动更改chromium.dt文件：</p>
+        <pre><code>$ sudo vim /usr/dt/appconfig/types/C/chromium.dt</code></pre>
+        <p>找到这一行：</p>
+        <pre><code>EXEC_STRING chromium-browser %Arg_1%</code></pre>
+        <p>改成：</p>
+        <pre><code>EXEC_STRING chromium %Arg_1%</code></pre>
+        <p>保存并退出即可，可能需要登出然后再重新登入一下，记不清了。</p>
+        <p class="highlight">总结</p>
+        <p>好像没什么好总结的，想到什么可能会继续写点，就先这样吧。</p>
+      </div>
+      <footer>
+        <br>
+        <div class="copyright">Copyright (c) 2025 khangai Ngaan. All rights reserved.</div>
+      </footer>
+    </div>
+</html>
+
+
+
+
+
+
+
+        
+
+

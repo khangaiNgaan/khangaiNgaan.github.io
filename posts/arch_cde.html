@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>caffeine-scriptorium: 在Arch上安装CDE</title>
+    <title>caffeine-scriptorium: 在 Arch 上安装 CDE</title>
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="../css/style.css">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
@@ -12,21 +12,22 @@
     <div class="box">
       <div class="content">
         <div class="header">
-            <span class="title">在Arch上安装CDE</span>
+            <span class="title">在 Arch 上安装 CDE</span>
             <span class="date">2025-04-17 / 4-30</span>
         </div>
         <br>
         <p class="highlight">简介</p>
-        <p>通用桌面环境（Common Desktop Environment, CDE）是一个基于Motif的桌面环境，最初由HP、IBM、Sun等公司合作开发，在1990年代作为商用Unix工作站的标准桌面环境被广泛使用，直到2000年代初随着开源桌面环境（KDE, GNOME等）的兴起而被逐渐取代。2012年，CDE宣布开源，随后被移植到Linux上，并被维护至今。</p>
-        <p>目前CDE的代码主要托管在 <a href="https://sourceforge.net/projects/cdesktopenv/">SourceForge</a> 上。</p>
+        <p>通用桌面环境（Common Desktop Environment, CDE）是一个基于 Motif 的桌面环境，最初由 HP、IBM、Sun 等公司合作开发，在1990年代作为商用 Unix 工作站的标准桌面环境被广泛使用，直到2000年代初随着开源桌面环境（KDE, GNOME等）的兴起而被逐渐取代。2012年，CDE 宣布开源，随后被移植到 Linux 上，并被维护至今。</p>
+        <img class="pics" src="../pics/arch_cdesktopenv.png" alt="CDE in Arch Linux">
+        <p>目前 CDE 的代码主要托管在 <a href="https://sourceforge.net/projects/cdesktopenv/">SourceForge</a> 上。</p>
         <p class="highlight">准备工作</p>
-        <p>启动计算机，进入Arch Linux，在tty中登入root账户。使用有线或无线方式连接互联网，并确保网络连线正常。开始之前，最好先滚动更新一下系统。</p>
+        <p>启动计算机，进入 Arch Linux，在 tty 中登入 root 账户。使用有线或无线方式连接互联网，并确保网络连线正常。开始之前，最好先滚动更新一下系统。</p>
         <pre><code># pacman -Syu</code></pre>
-        <p>我在安装前把KDE Plasma卸载了，如果你有安装别的桌面环境，可能得先停掉正在运行的图形界面服务。</p>
+        <p>我在安装前把 KDE Plasma 卸载了，如果你有安装别的桌面环境，可能得先停掉正在运行的图形界面服务。</p>
         <p class="highlight">安装依赖</p>
-        <p>在安装CDE之前，需要先安装一些依赖包，这里是：</p>
+        <p>在安装 CDE 之前，需要先安装一些依赖包，这里是：</p>
         <pre><code># pacman -S xorg xorg-server-devel gcc dnsutils git libxinerama libxss ncurses openmotif rpcbind xbitmaps bison flex tcl</code></pre>
-        <p>还有ksh和ncompress：</p>
+        <p>还有 ksh 和 ncompress：</p>
         <pre><code># git clone https://aur.archlinux.org/ksh.git
 # git clone https://aur.archlinux.org/ncompress.git</code></pre>
         <p>然后进入这两个目录，编译安装：</p>
@@ -34,28 +35,28 @@
 # makepkg -si
 # cd ../ncompress
 # makepkg -si</code></pre>
-        <p>如果你已经安装了yay也可用yay安装：</p>
+        <p>如果你已经安装了 yay 也可用 yay 安装：</p>
         <pre><code># yay -S ksh ncompress</code></pre>
-        <p>手动创建/lib/cpp符号链接：</p>
+        <p>手动创建 /lib/cpp 符号链接：</p>
         <pre><code># ln -s /usr/bin/cpp /lib/cpp</code></pre>
-        <p>这是必要的，如果不这么做，后续的编译过程会遇到问题。（文档说的，，，）</p>
-        <p class="highlight">安装CDE</p>
-        <p>登出root账户，登入你的用户账户，以避免使用root账户登录图形界面。</p>
+        <p>这是必要的，CDE 的编译过程依赖于 C 预处理器（cpp）可执行文件位于 /lib/cpp 这个路径。如果找不到这个符号链接，CDE 的编译就会失败。</p>
+        <p class="highlight">安装 CDE</p>
+        <p>登出 root 账户，登入你的用户账户，以避免使用 root 账户登录图形界面。</p>
         <pre><code># exit</code></pre>
-        <p>克隆CDE仓库：</p>
+        <p>克隆 CDE 仓库：</p>
         <pre><code>$ git clone https://git.code.sf.net/p/cdesktopenv/code cdesktopenv-code</code></pre>
-        <p>编译CDE：</p>
+        <p>编译 CDE：</p>
         <pre><code>$ ./autogen.sh
 $ ./configure
 $ make
 $ sudo make install</code></pre>
-        <p>这个过程可能需要很长时间，安装完成后就可以启动CDE了。</p>
-        <p class="highlight">启动CDE</p>
-        <p>在tty中输入：</p>
+        <p>这个过程可能需要很长时间，安装完成后就可以启动 CDE 了。</p>
+        <p class="highlight">启动 CDE</p>
+        <p>在 tty 中输入：</p>
         <pre><code>$ startx /usr/dt/bin/Xsession</code></pre>
-        <p>或者你也可以启动CDE自带的dtlogin登录管理器：</p>
+        <p>或者你也可以启动 CDE 自带的 dtlogin 登录管理器：</p>
         <pre><code>$ /usr/dt/bin/dtlogin -daemon</code></pre>
-        <p>如果需要开机自动启动dtlogin的话，可以用任意文本编辑器在/etc/systemd/system/目录下创建一个名为dtlogin.service的服务单元文件：</p>
+        <p>如果需要开机自动启动 dtlogin 的话，可以用任意文本编辑器在 /etc/systemd/system/ 目录下创建一个名为 dtlogin.service 的服务单元文件：</p>
         <pre><code>$ sudo vim /etc/systemd/system/dtlogin.service</code></pre>
         <p>添加以下内容：</p>
         <pre><code>[Unit]
@@ -72,20 +73,61 @@ Alias=display-manager.service</code></pre>
         <pre><code>:wq</code></pre>
         <p>启用服务：</p>
         <pre><code>$ sudo systemctl enable dtlogin.service</code></pre>
-        <p>重启计算机，CDE就会自动启动了。</p>
+        <p>重启计算机，CDE 就会自动启动了。</p>
         <p class="highlight">使用</p>
-        <p>窗口顶部标题栏，左上角按钮（一个减号）单击可以唤出菜单栏，双击关闭窗口，右上角两个按钮，圆点单击可以最小化窗口到桌面（或者理论上其实是叫做Workspace）左侧，方框单击可以最大化窗口。</p>
-        <p>最下面那条看着像dock栏的东西叫做Front Panel，你可以从这里快捷启动一些应用程序。</p>
-        <p>右二是Style Manager，你可以在这进行一些个性化设置，比如在Color中，你可以选择不同的Palettes来调整UI颜色主题，比如我最喜欢的是Orchid。</p>
-        <p>我遇到了在Application Manager里打不开Chromium浏览器的问题，因为Chromium的可执行文件名是chromium而不是chromium-browser，需要手动更改chromium.dt文件：</p>
+        <p>窗口顶部标题栏，左上角减号单击唤出菜单栏，双击关闭窗口，右上角圆点单击可以最小化窗口到桌面左侧（或者理论上其实是叫做 Workspace 左侧），方框单击可以最大化窗口。</p>
+        <p>最下面是 Front Panel，你可以从这里查看日期时间，在桌面间切换（One Two Three Four 名称可以右键更改），快捷启动一些应用程序，锁定屏幕或者登出账户。</p>
+        <img class="pics" src="../pics/front_panel.png" alt="CDE Front Panel">
+        <p>没有关机或者重启选项，可能早期 Unix 工作站都是管理员来负责开机和关机，普通用户没有这个权限，所以也没有必要设计一个图形化的关机选项了。如果需要关机或者重启，只能退回到 tty 用 shutdown now 和 reboot 命令。</p>
+        <p>左三是 File Manager，左四是 Personal Applications。</p>
+        <p>单击上面的小三角可以弹出 Subpanel，可以通过将 App 拖拽进 Subpanel 顶部的 Install Icon 区域来添加项目，右键单击 App 可以选择把 App 钉在 Front Panel 上，会替代掉原本钉在 Front Panel 上的 App（默认情况下是 Text Editor）。</p>
+        <img class="pics" src="../pics/personal_apps.png" alt="Personal Applications Window" style="width: 20%;">
+        <p>右二是 Style Manager，你可以在这进行一些个性化设置，比如在 Color 中，你可以选择不同的 Palettes 来调整 UI 颜色主题，比如我最喜欢的是 Orchid。</p>
+        <p>右三是 Applications Manager，右五是 Trash。</p>
+        <p>CDE 自带了 dtterm 作为终端模拟器，但是这个有点过于古老了日常使用中会碰到各种问题，还是用更为现代的 Konsole 比较好。</p>
+        <p>我遇到了在 Application Manager 里打不开 Chromium 浏览器的问题，因为 Chromium 的可执行文件名是 chromium 而不是 chromium-browser，需要手动更改 chromium.dt 文件：</p>
         <pre><code>$ sudo vim /usr/dt/appconfig/types/C/chromium.dt</code></pre>
         <p>找到这一行：</p>
         <pre><code>EXEC_STRING chromium-browser %Arg_1%</code></pre>
         <p>改成：</p>
         <pre><code>EXEC_STRING chromium %Arg_1%</code></pre>
         <p>保存并退出即可，可能需要登出然后再重新登入一下，记不清了。</p>
-        <p class="highlight">总结</p>
-        <p>好像没什么好总结的，想到什么可能会继续写点，就先这样吧。</p>
+        <p class="highlight">添加 App Manager 项目 / 更改 App 图标 —— 以 Dolphin 为例</p>
+        <p>Dolphin 由 KDE 团队开发，是 KDE Plasma 的默认文件管理器，相较于 CDE 自带的 dtfile，KDE 的 Dolphin 要更为现代一些。</p>
+        <p>我在卸载 KDE 的时候好像没把 Dolphin 删掉（不知道为什么），如果没有安装的话：</p>
+        <pre><code># pacman -S dolphin</code></pre>
+        <p>在 Application Manager 中新建 Personal 文件夹，把 Dolphin 链接过来：</p>
+        <pre><code># mkdir /usr/dt/appconfig/appmanager/C/Personal/
+# ln -s /usr/bin/dolphin /usr/dt/appconfig/appmanager/C/Personal/dolphin</code></pre>
+        <p>推荐在 root 账户操作。</p>
+        <p>在 /usr/dt/appconfig/types/C/ 中添加 dolphin.dt 并添加内容。</p>
+        <pre><code># vim /usr/dt/appconfig/types/C/dolphin.dt</code></pre>
+        <p>添加以下内容：</p>
+        <pre><code>ACTION dolphin
+{
+  LABEL dolphin
+  TYPE  COMMAND
+  ICON  dolphin
+  EXEC_STRING /usr/bin/dolphin
+  WINDOW_TYPE NO_STDIO
+}</code></pre>
+      <p>保存并退出。</p>
+      <p>Ctrl+Alt+F2 回到 CDE，打开 Chromium，找到并下载 dolphin.png，放到某个位置（比如家目录下的 Pictures）。CDE 的图标文件得是 .pm 格式的。需要把 .png 先转换成 .xpm，然后再直接改后缀名为 .pm。而且，需要三个不同大小的图标文件（.l.pm .m.pm .t.pm 分别对应 48x48 32x32 16x16）。因此，这里我们需要使用到 ImageMagick 工具。</p>
+      <p>Ctrl+Alt+F1 回到 tty，如果没有安装ImageMagick的话：</p>
+      <pre><code># pacman -S imagemagick</code></pre>
+      <p>进入 Pictures 目录，转换格式：</p>
+      <pre><code># cd ~/Pictures
+# magick dolphin.png -resize 48x48 dolphin.l.xpm
+# magick dolphin.png -resize 32x32 dolphin.m.xpm
+# magick dolphin.png -resize 16x16 dolphin.t.xpm</code></pre>
+      <p>然后把后缀名都改成 .pm：</p>
+      <pre><code># mv dolphin.l.xpm dolphin.l.pm
+# mv dolphin.m.xpm dolphin.m.pm
+# mv dolphin.t.xpm dolphin.t.pm</code></pre>
+      <p>然后把这三个文件拷贝到 /usr/dt/appconfig/icons/C/ 目录下：</p>
+      <pre><code># cp dolphin.l.pm dolphin.m.pm dolphin.t.pm /usr/dt/appconfig/icons/C/</code></pre>
+      <p>回到 CDE，登出账户然后再重新登入，就可以看到更改以及已经生效了。</p>
+      <br>
       </div>
       <footer>
         <br>

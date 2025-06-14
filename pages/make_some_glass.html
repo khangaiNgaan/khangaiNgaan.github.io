@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Some Glass</title>
+    <style>
+        @font-face {
+        font-family: unifont;
+         src: url(../Fonts/unifont.otf);
+        }
+
+        body {
+            background-color: #d8e3ed; /* 确保有背景可以模糊 */
+            font-family: 'unifont'; /* 使用自定义字体 */
+            overflow-x: hidden;
+            max-width: 700px;
+            height: 100%;
+            margin: auto;
+            padding: 20px 50px ;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .glass-container {
+            font-family: 'unifont'; /* 使用自定义字体 */
+            position: fixed; /* 使用fixed定位，确保它覆盖整个视口且不随滚动条移动 */
+            top: 0;
+            left: 0;
+            width: 100vw; /* 视口宽度 */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p {
+            font-family: 'unifont';
+            font-size: 14px;
+            color: #444f5d;
+            line-height: 2;
+        }
+
+        h3 {
+            font-family: 'unifont';
+            font-size: 16px;
+            color: #444f5d;
+            line-height: 2;
+            font-weight: bold;
+        }
+
+        h4 {
+            font-family: 'unifont';
+            font-size: 15px;
+            color: #444f5d;
+            line-height: 2;
+            font-weight: bold;
+        }
+
+        a {
+            color: #444f5d;
+        }
+
+        a:hover {
+            background-color: #444f5d;
+            color: #d8e3ed;
+        }
+
+        .draggable-textbox {
+            position: absolute; /* 绝对定位，方便拖拽 */
+            width: 340px;
+            min-height: 200px;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0.3); /* 半透明白色背景 */
+            border-radius: 10px;
+            box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(79, 68, 93, 0.2);
+            /* 毛玻璃效果 */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px); /* 兼容性前缀 */
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+            cursor: default; /* 鼠标样式，提示可拖拽 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow: auto; /* 允许文本框内容溢出时滚动 */
+        }
+
+        .draggable-textbox:active {
+            cursor: default; /* 拖拽时鼠标样式 */
+        }
+
+        .textbox-header {
+            width: 100%;
+            height: 20px; /* 作为可拖拽区域 */
+            cursor: default;
+            background-color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 0;
+            border-bottom: 1px solid rgba(79, 68, 93, 0.2); /* 这就是横贯框体的线 */
+            box-sizing: border-box; /* 确保 padding/border 包含在 height 内 */
+        }
+
+        .textbox-content {
+            width: 100%;
+            margin: 10px;
+            flex-grow: 1; /* 占据剩余空间 */
+            white-space: pre-wrap; /* 允许文本换行 */
+            overflow-y: auto; /* 内容溢出时滚动 */
+            background: transparent;
+        }
+
+        /* 简单的文本输入框样式 */
+        .textbox-content[contenteditable="true"] {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            padding: 5px 20px 20px 10px; /* 左右留出空间 */
+            box-sizing: border-box; /* 确保 padding 包含在宽度内 */
+            margin: 0;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        <div id="frostedTextbox" class="draggable-textbox">
+            <div class="textbox-header"></div>
+            <div class="textbox-content" contenteditable="true">wishing you a wonderful day!</div>
+        </div>
+    </div>
+
+    <h3>How to switch my browser encoding to GB2312?</h3>
+
+    <p>When you see garbled text (such as "�������"), you need to switch your browser encoding from UTF-8 to GB2312 so that the web pages will display correctly.</p>
+
+    <p>It's easy to change the encoding in old browsers. Nowadays, as UTF-8 has become the universal standard, most modern browsers have removed the option to change the encoding from the menu, making browser extensions necessary for this purpose.</p>
+
+    <h4>Mozilla Firefox</h4>
+
+    <p>It's easy to change the encoding in modern Firefox. It doesn't need a browser extention. Firefox version 91 (released on 2021) added a new "Repair Text Encoding" function to replace the former "Text Encoding" menu item. You need to right click an empty area of the Tab bar at the top of the Firefox window and click "Menu Bar" to display the Menu Bar first. (Or you can also press the "Alt" key to show the Menu Bar.) Then click the "View" and select the "Repair Text Encoding" menu item. After that, the text encoding will be automatically switched to the appropriate one.</p>
+
+    <h4>Chromium / Google Chrome / Microsoft Edge</h4>
+
+    <p>All you need to do is to install a browser extention named "Charset". For Chrome / Chromium user, you can download it from <a href="https://chromewebstore.google.com/detail/oenllhgkiiljibhfagbfogdbchhdchml?utm_source=item-share-cb">Chrome Web Store</a> or <a href="https://github.com/jinliming2/Chrome-Charset/releases">GitHub</a>. For Edge user, you can download it from <a href="https://microsoftedge.microsoft.com/addons/detail/charset/ljameaionljangkhnobkellagnjjohno">here</a>. And you know how to use it.</p>
+
+    <script>
+        const frostedTextbox = document.getElementById('frostedTextbox');
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        // 鼠标按下事件
+        frostedTextbox.querySelector('.textbox-header').addEventListener('mousedown', (e) => {
+            isDragging = true;
+            // 计算鼠标点击位置与元素左上角的偏移量
+            offsetX = e.clientX - frostedTextbox.getBoundingClientRect().left;
+            offsetY = e.clientY - frostedTextbox.getBoundingClientRect().top;
+            // 阻止文本选中，提高拖拽体验
+            e.preventDefault();
+            frostedTextbox.style.cursor = 'default'; // 鼠标样式改为默认
+        });
+
+        // 鼠标移动事件
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            // 计算新的位置
+            let newX = e.clientX - offsetX;
+            let newY = e.clientY - offsetY;
+
+            // 限制拖拽范围，防止拖出视口（可选）
+            const maxX = window.innerWidth - frostedTextbox.offsetWidth;
+            const maxY = window.innerHeight - frostedTextbox.offsetHeight;
+
+            newX = Math.max(0, Math.min(newX, maxX));
+            newY = Math.max(0, Math.min(newY, maxY));
+
+            frostedTextbox.style.left = `${newX}px`;
+            frostedTextbox.style.top = `${newY}px`;
+        });
+
+        // 鼠标松开事件
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            frostedTextbox.style.cursor = 'default'; // 恢复鼠标样式
+        });
+
+        // 如果想让整个文本框都可拖拽，可以把 mousedown 事件监听器加到 frostedTextbox 上
+        // 但通常我们会给一个特定区域（比如头部）来触发拖拽
+        // frostedTextbox.addEventListener('mousedown', (e) => { ... });
+    </script>
+</body>
+</html>

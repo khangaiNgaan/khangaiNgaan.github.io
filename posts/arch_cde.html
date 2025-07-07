@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>caffeine-Ink: 在 Arch 上安装 CDE</title>
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../css/posts.css">
     <link rel="stylesheet" href="../css/style.css">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
   </head>
@@ -114,7 +115,7 @@ Alias=display-manager.service</code></pre>
 }</code></pre>
       <p>保存并退出。</p>
       <p>Ctrl+Alt+F2 回到 CDE，打开 Chromium，找到并下载 dolphin.png，放到某个位置（比如家目录下的 Pictures）。CDE 的图标文件得是 .pm 格式的。需要把 .png 先转换成 .xpm，然后再直接改后缀名为 .pm。而且，需要三个不同大小的图标文件（.l.pm .m.pm .t.pm 分别对应 48x48 32x32 16x16）。因此，这里我们需要使用到 ImageMagick 工具。</p>
-      <p>Ctrl+Alt+F1 回到 tty，如果没有安装ImageMagick的话：</p>
+      <p>Ctrl+Alt+F1 回到 tty，如果没有安装 ImageMagick 的话：</p>
       <pre><code># pacman -S imagemagick</code></pre>
       <p>进入 Pictures 目录，转换格式：</p>
       <pre><code># cd ~/Pictures
@@ -127,7 +128,7 @@ Alias=display-manager.service</code></pre>
 # mv dolphin.t.xpm dolphin.t.pm</code></pre>
       <p>然后把这三个文件拷贝到 /usr/dt/appconfig/icons/C/ 目录下：</p>
       <pre><code># cp dolphin.l.pm dolphin.m.pm dolphin.t.pm /usr/dt/appconfig/icons/C/</code></pre>
-      <p>回到 CDE，登出账户然后再重新登入，就可以看到更改以及已经生效了。</p>
+      <p>回到 CDE，登出账户然后再重新登入，就可以看到更改已经生效了。</p>
       <br>
       </div>
       <div class="back"><a href="../index.html">< back to home</a></div>

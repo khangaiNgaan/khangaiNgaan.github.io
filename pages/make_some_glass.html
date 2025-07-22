@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>caffeine-Ink / make some glass</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
     <style>
         @font-face {
         font-family: unifont;
@@ -11,8 +16,8 @@
         }
 
         body {
-            background-color: #d8e3ed; /* 确保有背景可以模糊 */
-            font-family: 'unifont'; /* 使用自定义字体 */
+            background-color: #d8e3ed; 
+            font-family: 'unifont';
             overflow-x: hidden;
             max-width: 700px;
             height: 100%;
@@ -23,7 +28,7 @@
         }
 
         .glass-container {
-            font-family: 'unifont'; /* 使用自定义字体 */
+            font-family: 'unifont';
             position: fixed; /* 使用fixed定位，确保它覆盖整个视口且不随滚动条移动 */
             top: 0;
             left: 0;
@@ -81,7 +86,7 @@
             color: #333;
             font-size: 14px;
             line-height: 1.5;
-            cursor: default; /* 鼠标样式，提示可拖拽 */
+            cursor: default;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -90,7 +95,7 @@
         }
 
         .draggable-textbox:active {
-            cursor: default; /* 拖拽时鼠标样式 */
+            cursor: default;
         }
 
         .textbox-header {
@@ -99,7 +104,7 @@
             cursor: default;
             background-color: rgba(255, 255, 255, 0.4);
             margin-bottom: 0;
-            border-bottom: 1px solid rgba(79, 68, 93, 0.2); /* 这就是横贯框体的线 */
+            border-bottom: 1px solid rgba(79, 68, 93, 0.2); /* 这是线 */
             box-sizing: border-box; /* 确保 padding/border 包含在 height 内 */
         }
 
@@ -112,7 +117,6 @@
             background: transparent;
         }
 
-        /* 简单的文本输入框样式 */
         .textbox-content[contenteditable="true"] {
             border: none;
             outline: none;
@@ -188,10 +192,6 @@
             isDragging = false;
             frostedTextbox.style.cursor = 'default'; // 恢复鼠标样式
         });
-
-        // 如果想让整个文本框都可拖拽，可以把 mousedown 事件监听器加到 frostedTextbox 上
-        // 但通常我们会给一个特定区域（比如头部）来触发拖拽
-        // frostedTextbox.addEventListener('mousedown', (e) => { ... });
     </script>
 </body>
 </html>

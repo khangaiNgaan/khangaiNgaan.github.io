@@ -58,6 +58,11 @@ a:hover {
     color: #d8e3ed;
 }
 
+::selection {
+    background-color: #444f5d;
+    color: #d8e3ed;
+}
+
 .copyright {
     font-family: 'unifont';
     font-size: 12px;

@@ -2,6 +2,18 @@
     font-family: unifont;
     src: url(../Fonts/unifont.otf);
 }
+@font-face {
+    font-family: sentient;
+    font-weight: bold;
+    src: url(../Fonts/Sentient-Bold.otf);
+}
+
+.title-Index {
+    font-family: 'sentient';
+    font-weight: bold;
+    font-size: 16px;
+    color: #444f5d;
+}
 
 .title {
     font-family: 'unifont';

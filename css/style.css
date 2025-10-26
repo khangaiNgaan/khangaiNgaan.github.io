@@ -15,21 +15,38 @@
     color: #444f5d;
 }
 
-.title {
+.os-macos .title {
     font-family: 'Courier', 'STHeitiSC-Light','unifont', sans-serif;
     font-size: 16px;
     color: #444f5d;
 } 
+html:not(.os-macos) .title {
+    font-family: 'unifont', sans-serif;
+    font-size: 16px;
+    color: #444f5d;
+}
 
-p {
+.os-macos p {
     font-family: 'Courier', 'STHeitiSC-Light','unifont', sans-serif;
     font-size: 14px;
     color: #444f5d;
     line-height: 2;
 }
+html:not(.os-macos) p {
+    font-family: 'unifont', sans-serif;
+    font-size: 14px;
+    color: #444f5d;
+    line-height: 2;
+}
 
-.novel {
+.os-macos .novel {
     font-family: 'Courier', 'STSongti-SC-Regular', 'unifont', sans-serif;
+    font-size: 14px;
+    color: #444f5d;
+    line-height: 2;
+}
+html:not(.os-macos) .novel {
+    font-family: 'unifont', sans-serif;
     font-size: 14px;
     color: #444f5d;
     line-height: 2;
@@ -39,9 +56,22 @@ p {
     background-color: #ced9e3;
 }
 
-pre code {
+.os-macos pre code {
     display: block;
     font-family: 'Courier New', 'STHeitiSC-Light', 'unifont';
+    font-size: 14px;
+    color: #444f5d;
+    line-height: 2;
+    background-color: #ced9e3;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: pre;
+    scrollbar-width: 5px;
+    scrollbar-color: #b5c0ce #ced9e3;
+}
+html:not(.os-macos) pre code {
+    display: block;
+    font-family: 'unifont', sans-serif;
     font-size: 14px;
     color: #444f5d;
     line-height: 2;
@@ -82,15 +112,26 @@ a:hover {
     color: #d8e3ed;
 }
 
-.copyright {
+.os-macos .copyright {
     font-family: 'Courier New', 'unifont';
     font-size: 12px;
     color: #444f5d;
     line-height: 1;
 }
+html:not(.os-macos) .copyright {
+    font-family: 'unifont', sans-serif;
+    font-size: 12px;
+    color: #444f5d;
+    line-height: 1;
+}
 
-.index {
+.os-macos .index {
     font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+html:not(.os-macos) .index {
+    font-family: 'unifont', sans-serif;
     font-size: 14px;
     line-height: 1.8;
 }
@@ -102,8 +143,15 @@ a:hover {
     }
 }
 
-.date {
+.os-macos .date {
     font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
+    font-size: 14px;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+html:not(.os-macos) .date {
+    font-family: 'unifont', sans-serif;
     font-size: 14px;
     text-align: right;
     margin-right: 10px;
@@ -122,15 +170,27 @@ a:hover {
     align-items: flex-end;
 }
 
-.pagesEntrance {
+.os-macos .pagesEntrance {
     font-family: 'Courier', 'STHeitiSC-Light', 'unifont';
     font-size: 14px;
     color: #444f5d;
     line-height: 2;
 }
+html:not(.os-macos) .pagesEntrance {
+    font-family: 'unifont', sans-serif;
+    font-size: 14px;
+    color: #444f5d;
+    line-height: 2;
+}
 
-.legacyEntrance {
+.os-macos .legacyEntrance {
     font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
+    font-size: 14px;
+    text-align: right;
+    line-height: 2;
+}
+html:not(.os-macos) .legacyEntrance {
+    font-family: 'unifont', sans-serif;
     font-size: 14px;
     text-align: right;
     line-height: 2;
@@ -138,7 +198,7 @@ a:hover {
 
 
 li {
-    font-family: 'Courier New', 'STHeitiSC-Light', 'unifont', sans-serif;
+    font-family: 'unifont', sans-serif;
     font-size: 14px;
     line-height: 1.5;
 }
@@ -148,8 +208,14 @@ li {
     height: auto;
 }
 
-.back {
+.os-macos .back {
     font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+html:not(.os-macos) .back {
+    font-family: 'unifont', sans-serif;
     font-size: 14px;
     margin-right: 10px;
     margin-top: 15px;

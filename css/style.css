@@ -1,11 +1,11 @@
 @font-face {
     font-family: unifont;
-    src: url(../Fonts/unifont.otf);
+    src: url(../font/unifont.otf);
 }
 @font-face {
     font-family: sentient;
     font-weight: bold;
-    src: url(../Fonts/Sentient-Bold.otf);
+    src: url(../font/Sentient-Bold.otf);
 }
 
 .title-Index {
@@ -31,12 +31,14 @@ html:not(.os-macos) .title {
     font-size: 14px;
     color: #444f5d;
     line-height: 2;
+    text-align: justify;
 }
 html:not(.os-macos) p {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     color: #444f5d;
     line-height: 2;
+    text-align: justify;
 }
 
 .os-macos .novel {
@@ -196,8 +198,13 @@ html:not(.os-macos) .legacyEntrance {
     line-height: 2;
 }
 
+.os-macos li {
+    font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
 
-li {
+html:not(.os-macos) li {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     line-height: 1.5;

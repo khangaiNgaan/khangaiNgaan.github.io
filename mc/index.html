@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>caffeine-Ink / mc / index</title>
+    <title>caffeine-Ink / mc</title>
     <meta name="theme-color" content="#ffffff">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -11,7 +11,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/posts.css">
-    <script src="../os_detect.js"></script>
+    <script src="../scripts/os_detect.js"></script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
   </head>
   <body>
@@ -28,11 +28,14 @@
           <pre><code>mc.caffeine.ink</code></pre>
           <p><span style="background-color: #444f5d; color: #d8e3ed;">注意：</span>目前本 Minecraft 服务器运行在一台松下笔电上，使用 Cloudflare Tunnel 内网穿透服务。目前已无法直接通过在多人游戏中添加 mc.caffeine.ink 的方式进入服务器。请参阅下文的 <span style="background-color: #444f5d; color: #d8e3ed;">"向导：如何连接服务器"</span>。</p>
           <pre><code><span style="font-size: 12px;">"一方面是出于安全考虑，因为之前被 Mountains of Lava 炸过服，以及，主播不想给阿里云续费了"</span></code></pre>
-          <p>本服务器目前加载的模块有:</p>
-          <pre><code>AuthMe              #用于验证玩家身份，用法参见向导
-SkinsRestorer       #用于自定义皮肤，用法参见向导
-SinglePlayerSleep   #单个玩家睡眠即可跳过夜晚或雷暴
-Skript              #运行自定义脚本，目前用于 Daily Rewards 机制</code></pre>
+          <p>服务器目前的种子：</p>
+          <pre><code><span style="font-size: 12px;">-4873354123703666356 [<a href="https://www.chunkbase.com/apps/seed-map#seed=-4873354123703666356&platform=java_1_21_6&dimension=overworld" target="_blank" rel="noopener noreferrer">Seed Map</a>]</span></code></pre>
+          <p>服务器目前加载的模块：</p>
+          <pre><code>AuthMe              # 用于验证玩家身份，用法参见向导
+SkinsRestorer       # 用于自定义皮肤，用法参见向导
+SinglePlayerSleep   # 单个玩家睡眠即可跳过夜晚或雷暴
+Skript              # 运行自定义脚本，目前用于 Daily Rewards 机制
+TabListPing         # 在 Tab 列表里显示每位玩家的延迟</code></pre>
           <p class="highlight">向导：安装游戏</p>
           <p>你可以使用 Microsoft Windows / macOS / GNU Linux / Android 游玩。</p>
           <p>对于 Windows / macOS / GNU Linux 用户，可以使用 HMCL 启动器或其他启动器安装 Java 版 1.21.8 进行游玩。HMCL 是一个开源的 Minecraft Java Edition 启动器，你可以通过下面的链接访问 HMCL 官网，下载稳定版 HMCL，或是查看 HMCL 的官方帮助文档。</p>
@@ -41,34 +44,55 @@ Skript              #运行自定义脚本，目前用于 Daily Rewards 机制</
           <a href="https://github.com/HMCL-dev/HMCL" target="_blank" rel="noopener noreferrer">HMCL GitHub 项目地址</a></p>
           <p>对于 Android 用户，可以使用 FCL 启动器安装 Java 版 1.21.8 进行游玩。</p>
           <p><a href="https://github.com/FCL-Team/FoldCraftLauncher" target="_blank" rel="noopener noreferrer">Foldcraft Launcher GitHub 项目地址</a><br>
-          <a href="https://github.com/FCL-Team/FoldCraftLauncher/releases" target="_blank" rel="noopener noreferrer">Foldcraft Launcher 下载页面</a></p>
-          <pre><code><span style="font-size: 12px;">"我不知道但是也许你有很多种方法可以在 Android 上跑 cloudflared，如果不行就算了"</span></code></pre>
-          <p>这些启动器都会自动安装合适的 Java 环境。</p>
+          <a href="https://github.com/FCL-Team/FoldCraftLauncher/releases/latest" target="_blank" rel="noopener noreferrer">Foldcraft Launcher 下载页面</a></p>
+          <pre><code><span style="font-size: 12px;">你可以使用 Termux 在 Android 上运行 cloudflared，步骤如下：
+1. 下载并安装 Termux [<a href="https://github.com/termux/termux-app/releases/latest" target="_blank" rel="noopener noreferrer">GitHub Releases</a>]
+    （一般请选择 arm64 版本）
+2. 打开 Termux，运行如下命令安装 cloudflared：
+    pkg upgrade
+    pkg install cloudflared
+后续步骤同 "向导：如何连接服务器"。</span></code></pre>
+          <p>Windows 版本的 HMCL 以及 Android 上的 FCL 都会自动安装合适的 Java 环境。</p>
+          <p>对于 macOS 用户，你可能需要自行下载并安装 Java 运行时环境。需要注意的是 1.21.8 要求 Java 21 或更高版本，因此你可以选择安装 Java 21 或 Java 25 运行时环境。推荐使用 <a href="https://adoptium.net/zh-CN" target="_blank" rel="noopener noreferrer">Eclipse Temurin</a> 或 <a href="https://www.oracle.com/cn/java/technologies/downloads/#java21" target="_blank" rel="noopener noreferrer">Oracle JDK</a>。 </p>
+          <pre><code><span style="font-size: 12px;">Eclipse Temurin: 
+### 这里会自动检测操作系统提供对应的版本，通常是 JDK 25
+<a href="https://adoptium.net/zh-CN" target="_blank" rel="noopener noreferrer">https://adoptium.net/zh-CN</a>
+### 这里列出了所有版本，你可以选择只安装 JRE 而不安装完整的 JDK
+<a href="https://adoptium.net/zh-CN/temurin/releases" target="_blank" rel="noopener noreferrer">https://adoptium.net/zh-CN/temurin/releases</a>
+
+Oracle JDK: 
+<a href="https://www.oracle.com/cn/java/technologies/downloads/#java21" target="_blank" rel="noopener noreferrer">https://www.oracle.com/cn/java/technologies/downloads/#java21</a>
+<a href="https://www.oracle.com/cn/java/technologies/downloads/#java25" target="_blank" rel="noopener noreferrer">https://www.oracle.com/cn/java/technologies/downloads/#java25</a></span></code></pre>
           <p>本服务器没有开启正版验证（online mode），因此你可以使用离线账号加入服务器游玩。</p>
           <p class="highlight">向导：如何连接服务器</p>
           <p>由于本服务器运行在内网穿透环境下，目前无法通过直接在多人游戏中添加 mc.caffeine.ink 的方式进入服务器。你需要先在本地运行 Cloudflare Tunnel 客户端 cloudflared，来建立到服务器的隧道连接。</p>
-          <p>首先，前往 <a href="https://github.com/cloudflare/cloudflared/releases" target="_blank" rel="noopener noreferrer">cloudflared 下载页面</a>，向下滚动到最新一个版本的 Assets，根据你的操作系统下载并安装 cloudflared。</p>
+          <p>首先，前往 <a href="https://github.com/cloudflare/cloudflared/releases/latest" target="_blank" rel="noopener noreferrer">cloudflared 下载页面</a>，根据你的操作系统下载并安装 cloudflared。</p>
           <p>比如，对于 Windows x64 用户，你需要下载：</p>
           <pre><code>cloudflared-windows-amd64.msi</code></pre>
           <p>对于 macOS 用户，你需要下载：</p>
-          <pre><code>cloudflared-amd64.pkg      #Intel Mac
-cloudflared-arm64.pkg      #Apple Silicon</code></pre>
+          <pre><code>cloudflared-amd64.pkg      # Intel Mac
+cloudflared-arm64.pkg      # Apple Silicon</code></pre>
           <p>双击安装，安装完成后，打开 Windows 终端（PowerShell 或 cmd 都可以）或是 macOS 终端，运行：</p>
           <pre><code>cloudflared --version</code></pre>
           <p>如果返回了类似:</p>
           <pre><code>cloudflared version 2025.10.0 (built 2025-10-14T16:16 UTC)</code></pre>
           <p>则说明 cloudflared 已经安装成功了。</p>
+          <pre><code><span style="font-size: 12px;">(!) 如果这一步出现报错，请尝试以管理员身份运行 PowerShell 或 cmd，例如：
+  1. 打开 "开始" 菜单
+  2. 搜索 "Terminal"（如果你正在使用 Windows 10，请搜索 "PowerShell"）
+  3. 右键选择 "以管理员身份运行"
+然后重新尝试运行 "cloudflared --version" 命令。</span></code></pre>
           <p>然后运行如下命令来启动隧道连接：</p>
           <pre><code>cloudflared access tcp --hostname mc.caffeine.ink --listener 127.0.0.1:25565</code></pre>
           <p>如果一切正常，你会看到类似如下的输出：</p>
           <pre><code>2025-10-21T09:44:03Z INF Start Websocket listener host=127.0.0.1:25565</code></pre>
-          <p>保持终端窗口运行（或者你也可以在 <a href="https://www.gnu.org/software/screen/" target="_blank" rel="noopener noreferrer">screen</a> 里运行 cloudflared），启动 Minecraft，进入多人游戏，添加服务器，地址填写：</p>
+          <p>保持终端窗口运行，启动 Minecraft，进入多人游戏，添加服务器，地址填写：</p>
           <pre><code>127.0.0.1</code></pre>
           <p>完成即可。然后现在就可以连接服务器了。</p>
           <p class="highlight">向导：如何注册或登入服务器账号</p>
           <p>由于没有开启 online mode，为确保服务器的安全，本服务器使用 AuthMe 插件来验证玩家身份。在启动器中添加离线账号启动游戏并连接服务器后，AuthMe 会要求玩家使用如下命令注册你的账号：</p>
           <pre><code>/register 密码 密码</code></pre>
-          <p>注意：密码不可包含空格，且至少需要 6 个字符。每个 IP 最多注册 3 个账号。</p>
+          <p>注意：密码不可包含空格，且至少需要 6 个字符。</p>
           <p>注册成功后，AuthMe 会要求玩家重新登入一次。你需要使用如下命令来登入账号：</p>
           <pre><code>/login 密码</code></pre>
           <p>如需修改密码，可以使用如下命令来修改密码：</p>

@@ -8,8 +8,8 @@ function handleDarkmode(e) {
     }
 
     favicons.forEach(favicon => {
-        var sizes = favicon.getAttribute('sizes');
-        var baseName;
+        let sizes = favicon.getAttribute('sizes');
+        let baseName;
         
         // depending on the size, set the appropriate favicon name 
         if (sizes === '32x32') {

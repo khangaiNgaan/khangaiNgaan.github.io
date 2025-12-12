@@ -1,11 +1,11 @@
 @font-face {
     font-family: unifont;
-    src: url(../font/unifont.otf);
+    src: url(../fonts/unifont.otf);
 }
 @font-face {
     font-family: sentient;
     font-weight: bold;
-    src: url(../font/Sentient-Bold.otf);
+    src: url(../fonts/Sentient-Bold.otf);
 }
 
 .title-Index {

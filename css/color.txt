@@ -1,0 +1,8 @@
+#444f5d
+#d8e3ed
+
+#b7c2d0 # highlight
+#b5c0ce # scrollbar
+#ced9e3 # pre code
+
+#0f0f11

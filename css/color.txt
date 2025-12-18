@@ -6,3 +6,9 @@
 #ced9e3 # pre code
 
 #0f0f11
+
+
+dark mode
+#B4CDE4 light blue
+#262626 grey
+#F6F6F6 white

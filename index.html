@@ -10,10 +10,24 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link id="main-css" rel="stylesheet" href="./css/style.css">
     <script defer src="./scripts/favicon.js"></script>
     <script src="./scripts/os_detect.js"></script>
     <script src="./scripts/timer.js"></script>
+    <script>
+      (function() {
+          const savedMode = localStorage.getItem('theme-mode') || 'auto';
+          let isDark = false;
+          if (savedMode === 'auto') {
+              isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } else {
+              isDark = (savedMode === 'dark');
+          }
+          if (isDark) {
+              document.documentElement.setAttribute('data-theme', 'dark');
+          }
+      })();
+    </script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
   </head>
   <body>
@@ -26,9 +40,10 @@
       <br>
       <div class="navbox">
         <span class="pagesEntrance"><a href="./pages/archives.html">归档</a> &nbsp;&nbsp; <a href="./pages/categories.html">板块</a></span>
-        <span class="legacyEntrance">24H workspace --&gt; [<a href="./mc/index.html">README</a>]</span>
+        <span class="legacyEntrance">[<a href="#" id="darkModeButton">auto</a>] [<a href="./mc/index.html">workspace</a>]</span>
       </div>
       </div>
     </div>
+    <script src="./scripts/theme.js"></script>
   </body>
 </html>

@@ -11,10 +11,24 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link id="main-css" rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/posts.css">
 <script defer src="../scripts/favicon.js"></script>
 <script src="../scripts/os_detect.js"></script>
+<script>
+    (function() {
+        const savedMode = localStorage.getItem('theme-mode') || 'auto';
+        let isDark = false;
+        if (savedMode === 'auto') {
+            isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        } else {
+            isDark = (savedMode === 'dark');
+        }
+        if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
 </head>
 <body>
@@ -696,4 +710,5 @@ if any, to sign a &quot;copyright disclaimer&quot; for the program, if necessary
 For more information on this, and how to apply and follow the GNU AGPL, see
 &lt;<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>&gt;.</p>
 
+<script src="../scripts/theme.js"></script>
 </body></html>

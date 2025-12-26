@@ -8,35 +8,55 @@
     src: url(../fonts/Sentient-Bold.otf);
 }
 
+:root {
+    --bg-color: #d8e3ed;
+    --text-color: #444f5d;
+    --highlight-color: #b7c2d0;
+    --scrollbar-color: #b5c0ce;
+    --pre-code-color: #ced9e3;
+}
+[data-theme="dark"] {
+    --bg-color: #242931;
+    --text-color: #e9f0f5;
+    --highlight-color: #444f5d;
+    --scrollbar-color: #39424e;
+    --pre-code-color: #2e3640;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
 .title-Index {
     font-family: 'sentient';
     font-weight: bold;
     font-size: 16px;
-    color: #444f5d;
+    color: var(--text-color);
 }
 
 .os-macos .title {
     font-family: 'Courier', 'STHeitiSC-Light','unifont', sans-serif;
     font-size: 16px;
-    color: #444f5d;
+    color: var(--text-color);
 } 
 html:not(.os-macos) .title {
     font-family: 'unifont', sans-serif;
     font-size: 16px;
-    color: #444f5d;
+    color: var(--text-color);
 }
 
 .os-macos p {
     font-family: 'Courier', 'STHeitiSC-Light','unifont', sans-serif;
     font-size: 14px;
-    color: #444f5d;
+    color: var(--text-color);
     line-height: 2;
     text-align: justify;
 }
 html:not(.os-macos) p {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
-    color: #444f5d;
+    color: var(--text-color);
     line-height: 2;
     text-align: justify;
 }
@@ -44,54 +64,54 @@ html:not(.os-macos) p {
 .os-macos .novel {
     font-family: 'Courier', 'STSongti-SC-Regular', 'unifont', sans-serif;
     font-size: 14px;
-    color: #444f5d;
+    color: var(--text-color);
     line-height: 2;
 }
 html:not(.os-macos) .novel {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
-    color: #444f5d;
+    color: var(--text-color);
     line-height: 2;
 }
 
 .textbox {
-    background-color: #ced9e3;
+    background-color: var(--pre-code-color);
 }
 
 .os-macos pre code {
     display: block;
     font-family: 'Courier New', 'STHeitiSC-Light', 'unifont';
     font-size: 14px;
-    color: #444f5d;
+    color: var(--text-color);
     line-height: 2;
-    background-color: #ced9e3;
+    background-color: var(--pre-code-color);
     padding: 10px;
     overflow-x: auto;
     white-space: pre;
     scrollbar-width: 5px;
-    scrollbar-color: #b5c0ce #ced9e3;
+    scrollbar-color: var(--scrollbar-color) var(--pre-code-color);
 }
 html:not(.os-macos) pre code {
     display: block;
     font-family: 'unifont', sans-serif;
     font-size: 14px;
-    color: #444f5d;
+    color: var(--text-color);
     line-height: 2;
-    background-color: #ced9e3;
+    background-color: var(--pre-code-color);
     padding: 10px;
     overflow-x: auto;
     white-space: pre;
     scrollbar-width: 5px;
-    scrollbar-color: #b5c0ce #ced9e3;
+    scrollbar-color: var(--scrollbar-color) var(--pre-code-color);
 }
 
 p.highlight {
-    background-color: #b7c2d0;
+    background-color: var(--highlight-color);
     line-height: 1.6;
 }
 
 html {
-    background-color: #d8e3ed;
+    background-color: var(--bg-color);
 }
 
 .box {
@@ -101,29 +121,29 @@ html {
 }
 
 a {
-    color: #444f5d;
+    color: var(--text-color);
 }
 
 a:hover {
-    background-color: #444f5d;
-    color: #d8e3ed;
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }
 
 ::selection {
-    background-color: #444f5d;
-    color: #d8e3ed;
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }
 
 .os-macos .copyright {
     font-family: 'Courier New', 'unifont';
     font-size: 12px;
-    color: #444f5d;
+    color: var(--text-color);
     line-height: 1;
 }
 html:not(.os-macos) .copyright {
     font-family: 'unifont', sans-serif;
     font-size: 12px;
-    color: #444f5d;
+    color: var(--text-color);
     line-height: 1;
 }
 
@@ -175,13 +195,13 @@ html:not(.os-macos) .date {
 .os-macos .pagesEntrance {
     font-family: 'Courier', 'STHeitiSC-Light', 'unifont';
     font-size: 14px;
-    color: #444f5d;
+    color: var(--text-color);
     line-height: 2;
 }
 html:not(.os-macos) .pagesEntrance {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
-    color: #444f5d;
+    color: var(--text-color);
     line-height: 2;
 }
 

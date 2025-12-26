@@ -4,7 +4,7 @@
  
  <title>GNU AFFERO 通用公共许可</title>
  <link rel="alternate" type="application/rdf+xml" href="http://www.gnu.org/licenses/agpl-3.0.rdf">
- <link rel="stylesheet" type="text/css" href="../css/style.css">
+ <link id="main-css" rel="stylesheet" type="text/css" href="../css/style.css">
  <link rel="stylesheet" type="text/css" href="../css/posts.css">
  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -12,6 +12,20 @@
  <link rel="manifest" href="/site.webmanifest">
  <script defer src="../scripts/favicon.js"></script>
  <script src="../scripts/os_detect.js"></script>
+<script>
+    (function() {
+        const savedMode = localStorage.getItem('theme-mode') || 'auto';
+        let isDark = false;
+        if (savedMode === 'auto') {
+            isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        } else {
+            isDark = (savedMode === 'dark');
+        }
+        if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
  <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
 
 </head>
@@ -261,4 +275,5 @@ GPL的一个新版本，允许在这个许可证下重新许可。</p>
 <span class="style2">联系我们</span>：schong2@go.pasadena.edu</p>
 
 </div></div>
+<script src="../scripts/theme.js"></script>
 </body></html>

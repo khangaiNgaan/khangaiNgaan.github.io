@@ -1,14 +1,33 @@
-#444f5d
-#d8e3ed
+light mode
 
-#b7c2d0 # highlight
-#b5c0ce # scrollbar
-#ced9e3 # pre code
+#d8e3ed # --bg-color
+#444f5d # --text-color
 
-#0f0f11
+#b7c2d0 # --highlight-color
+#b5c0ce # --scrollbar-color
+#ced9e3 # --pre-code-color
 
 
 dark mode
+
+#242931 # --bg-color
+#e9f0f5 # --text-color
+
+#444f5d # --highlight-color
+#39424e # --scrollbar-color
+#2e3640 # --pre-code-color
+
+
+
+
+
+
+***
+
+#0f0f11
+
 #B4CDE4 light blue
 #262626 grey
 #F6F6F6 white
+
+#d5cbec

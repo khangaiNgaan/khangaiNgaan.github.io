@@ -9,10 +9,24 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="../css/style.css">
+    <link id="main-css" rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/index.css">
     <script defer src="../scripts/favicon.js"></script>
     <script src="../scripts/os_detect.js"></script>
+    <script>
+      (function() {
+          const savedMode = localStorage.getItem('theme-mode') || 'auto';
+          let isDark = false;
+          if (savedMode === 'auto') {
+              isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } else {
+              isDark = (savedMode === 'dark');
+          }
+          if (isDark) {
+              document.documentElement.setAttribute('data-theme', 'dark');
+          }
+      })();
+    </script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
   </head>
   <body>
@@ -31,6 +45,7 @@
           <div class="copyright">caffeine-Ink / archives</div>
         </footer>
     </div>
+  <script src="../scripts/theme.js"></script>
   </body>
 </html>
   

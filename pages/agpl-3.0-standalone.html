@@ -17,17 +17,22 @@
 <script src="../scripts/os_detect.js"></script>
 <script>
     (function() {
-        const savedMode = localStorage.getItem('theme-mode') || 'auto';
-        let isDark = false;
-        if (savedMode === 'auto') {
-            isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        } else {
-            isDark = (savedMode === 'dark');
-        }
-        if (isDark) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
-    })();
+          const savedMode = localStorage.getItem('theme-mode') || 'auto';
+          let isDark = false;
+          let isMono = false;
+          if (savedMode === 'auto') {
+              isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } else if (savedMode === 'mono') {
+              isMono = true;
+          } else {
+              isDark = (savedMode === 'dark');
+          }
+          if (isDark) {
+              document.documentElement.setAttribute('data-theme', 'dark');
+          } else if (isMono) {
+              document.documentElement.setAttribute('data-theme', 'mono');
+          }
+      })();
 </script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
 </head>

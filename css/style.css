@@ -22,6 +22,13 @@
     --scrollbar-color: #39424e;
     --pre-code-color: #2e3640;
 }
+[data-theme="mono"] {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --highlight-color: #cccccc;
+    --pre-code-color: #eeeeee;
+    --scrollbar-color: #dddddd;
+}
 
 body {
     background-color: var(--bg-color);

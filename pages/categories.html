@@ -18,13 +18,18 @@
       (function() {
           const savedMode = localStorage.getItem('theme-mode') || 'auto';
           let isDark = false;
+          let isMono = false;
           if (savedMode === 'auto') {
               isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } else if (savedMode === 'mono') {
+              isMono = true;
           } else {
               isDark = (savedMode === 'dark');
           }
           if (isDark) {
               document.documentElement.setAttribute('data-theme', 'dark');
+          } else if (isMono) {
+              document.documentElement.setAttribute('data-theme', 'mono');
           }
       })();
     </script>

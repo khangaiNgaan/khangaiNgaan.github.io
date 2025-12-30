@@ -168,7 +168,7 @@ html:not(.os-macos) .index {
 @media (max-width: 800px) {
     body {
         padding: 10px;
-        margin: 20px 5px 5px 10px;
+        margin: 20px 5px 10px 5px; 
     }
 }
 
@@ -176,14 +176,12 @@ html:not(.os-macos) .index {
     font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
     font-size: 14px;
     text-align: right;
-    margin-right: 10px;
     margin-top: 15px;
 }
 html:not(.os-macos) .date {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     text-align: right;
-    margin-right: 10px;
     margin-top: 15px;
 }
 

@@ -5,7 +5,7 @@
   <link href="https://caffeine.ink/" />
   <link href="https://caffeine.ink/feed.xml" rel="self" />
   <id>https://caffeine.ink/</id>
-  <updated>2026-01-19T21:30:00+08:00</updated>
+  <updated>2026-01-19T22:30:00+08:00</updated>
   <author>
     <name>khangai</name>
     <email>khangai@caffeine.ink</email>
@@ -21,16 +21,16 @@
     <content type="html">
       <![CDATA[
         <p>通用桌面环境（Common Desktop Environment, CDE）是一个基于 Motif 的桌面环境，最初由 HP、IBM、Sun 等公司合作开发，在1990年代作为商用 Unix 工作站的标准桌面环境被广泛使用，直到2000年代初随着开源桌面环境（KDE, GNOME等）的兴起而被逐渐取代。2012年，CDE 宣布开源，随后被移植到 Linux 上，并被维护至今。</p>
-        <img src="../pics/arch_cdesktopenv.png" alt="CDE in Arch Linux"></img>
+        <img src="https://caffeine.ink/pics/arch_cdesktopenv.png" alt="CDE in Arch Linux"></img>
         <p>目前 CDE 的代码主要托管在 <a href="https://sourceforge.net/projects/cdesktopenv/">SourceForge</a> 上。</p>
         <h2>准备工作</h2>
-        <p>启动计算机，进入 Arch Linux，在 tty 中登入 root 账户。使用有线或无线方式连接互联网，并确保网络连线正常。开始之前，最好先滚动更新一下系统。</p>
+        <p>启动计算机，进入 Arch Linux，在 <code>tty</code> 中登入 <code>root</code> 账户。使用有线或无线方式连接互联网，并确保网络连线正常。开始之前，最好先滚动更新一下系统。</p>
         <pre><code># pacman -Syu</code></pre>
         <p>我在安装前把 KDE Plasma 卸载了，如果你有安装别的桌面环境，可能得先停掉正在运行的图形界面服务。</p>
         <h2>安装依赖</h2>
         <p>在安装 CDE 之前，需要先安装一些依赖包，这里是：</p>
         <pre><code># pacman -S xorg xorg-server-devel gcc dnsutils git libxinerama libxss ncurses openmotif rpcbind xbitmaps bison flex tcl</code></pre>
-        <p>还有 ksh 和 ncompress：</p>
+        <p>还有 <code>ksh</code> 和 <code>ncompress</code>：</p>
         <pre><code># git clone https://aur.archlinux.org/ksh.git
 # git clone https://aur.archlinux.org/ncompress.git</code></pre>
         <p>然后进入这两个目录，编译安装：</p>
@@ -38,13 +38,13 @@
 # makepkg -si
 # cd ../ncompress
 # makepkg -si</code></pre>
-        <p>如果你已经安装了 yay 也可用 yay 安装：</p>
+        <p>如果你已经安装了 <code>yay</code> 也可用 <code>yay</code> 安装：</p>
         <pre><code># yay -S ksh ncompress</code></pre>
-        <p>手动创建 /lib/cpp 符号链接：</p>
+        <p>手动创建 <code>/lib/cpp</code> 符号链接：</p>
         <pre><code># ln -s /usr/bin/cpp /lib/cpp</code></pre>
-        <p>这是必要的，CDE 的编译过程依赖于 C 预处理器（cpp）可执行文件位于 /lib/cpp 这个路径。如果找不到这个符号链接，CDE 的编译就会失败。</p>
+        <p>这是必要的，CDE 的编译过程依赖于 C 预处理器（<code>cpp</code>）可执行文件位于 <code>/lib/cpp</code> 这个路径。如果找不到这个符号链接，CDE 的编译就会失败。</p>
         <h2>安装 CDE</h2>
-        <p>登出 root 账户，登入你的用户账户，以避免使用 root 账户登录图形界面。</p>
+        <p>登出 <code>root</code> 账户，登入你的用户账户，以避免使用 <code>root</code> 账户登录图形界面。</p>
         <pre><code># exit</code></pre>
         <p>克隆 CDE 仓库：</p>
         <pre><code>$ git clone https://git.code.sf.net/p/cdesktopenv/code cdesktopenv-code</code></pre>
@@ -55,11 +55,11 @@ $ make
 $ sudo make install</code></pre>
         <p>这个过程可能需要很长时间，安装完成后就可以启动 CDE 了。</p>
         <h2>启动 CDE</h2>
-        <p>在 tty 中输入：</p>
+        <p>在 <code>tty</code> 中输入：</p>
         <pre><code>$ startx /usr/dt/bin/Xsession</code></pre>
         <p>或者你也可以启动 CDE 自带的 dtlogin 登录管理器：</p>
         <pre><code>$ /usr/dt/bin/dtlogin -daemon</code></pre>
-        <p>如果需要开机自动启动 dtlogin 的话，可以用任意文本编辑器在 /etc/systemd/system/ 目录下创建一个名为 dtlogin.service 的服务单元文件：</p>
+        <p>如果需要开机自动启动 dtlogin 的话，可以用任意文本编辑器在 <code>/etc/systemd/system/</code> 目录下创建一个名为 <code>dtlogin.service</code> 的服务单元文件：</p>
         <pre><code>$ sudo vim /etc/systemd/system/dtlogin.service</code></pre>
         <p>添加以下内容：</p>
         <pre><code>[Unit]
@@ -80,15 +80,15 @@ Alias=display-manager.service</code></pre>
         <h2>使用</h2>
         <p>窗口顶部标题栏，左上角减号单击唤出菜单栏，双击关闭窗口，右上角圆点单击可以最小化窗口到桌面左侧（或者理论上其实是叫做 Workspace 左侧），方框单击可以最大化窗口。</p>
         <p>最下面是 Front Panel，你可以从这里查看日期时间，在桌面间切换（One Two Three Four 名称可以右键更改），快捷启动一些应用程序，锁定屏幕或者登出账户。</p>
-        <img src="../pics/front_panel.png" alt="CDE Front Panel"></img>
-        <p>没有关机或者重启选项，可能因为早期 Unix 小型机都是多用户共同使用的，由系统管理员统一负责开机和关机，所以也没有必要设计一个图形化的关机选项了。如果需要关机或者重启，只能退回到 tty 用 shutdown now 和 reboot 命令。</p>
+        <img src="https://caffeine.ink/pics/front_panel.png" alt="CDE Front Panel"></img>
+        <p>没有关机或者重启选项，可能因为早期 Unix 小型机都是多用户共同使用的，由系统管理员统一负责开机和关机，所以也没有必要设计一个图形化的关机选项了。如果需要关机或者重启，只能退回到 <code>tty</code> 用 <code>shutdown now</code> 和 <code>reboot</code> 命令。</p>
         <p>左三是 File Manager，左四是 Personal Applications。</p>
         <p>单击上面的小三角可以弹出 Subpanel，可以通过将 App 拖拽进 Subpanel 顶部的 Install Icon 区域来添加项目，右键单击 App 可以选择把 App 钉在 Front Panel 上，会替代掉原本钉在 Front Panel 上的 App（默认情况下是 Text Editor）。</p>
-        <img src="../pics/personal_apps.png" alt="Personal Applications Window" style="width: 20%;"></img>
+        <img src="https://caffeine.ink/pics/personal_apps.png" alt="Personal Applications Window" style="width: 20%;"></img>
         <p>右二是 Style Manager，你可以在这进行一些个性化设置，比如在 Color 中，你可以选择不同的 Palettes 来调整 UI 颜色主题，比如我最喜欢的是 Orchid。</p>
         <p>右三是 Applications Manager，右五是 Trash。</p>
         <p>CDE 自带了 dtterm 作为终端模拟器，但是这个有点过于古老了日常使用中会碰到各种问题，还是用更为现代的 Konsole 比较好。</p>
-        <p>我遇到了在 Application Manager 里打不开 Chromium 浏览器的问题，因为 Chromium 的可执行文件名是 chromium 而不是 chromium-browser，需要手动更改 chromium.dt 文件：</p>
+        <p>我遇到了在 Application Manager 里打不开 Chromium 浏览器的问题，因为 Chromium 的可执行文件名是 <code>chromium</code> 而不是 <code>chromium-browser</code>，需要手动更改 <code>chromium.dt</code> 文件：</p>
         <pre><code>$ sudo vim /usr/dt/appconfig/types/C/chromium.dt</code></pre>
         <p>找到这一行：</p>
         <pre><code>EXEC_STRING chromium-browser %Arg_1%</code></pre>
@@ -103,7 +103,7 @@ Alias=display-manager.service</code></pre>
         <pre><code># mkdir /usr/dt/appconfig/appmanager/C/Personal/
 # ln -s /usr/bin/dolphin /usr/dt/appconfig/appmanager/C/Personal/dolphin</code></pre>
         <p>推荐在 root 账户操作。</p>
-        <p>在 /usr/dt/appconfig/types/C/ 中添加 dolphin.dt 并添加内容。</p>
+        <p>在 /usr/dt/appconfig/types/C/ 中添加 <code>dolphin.dt</code> 并添加内容。</p>
         <pre><code># vim /usr/dt/appconfig/types/C/dolphin.dt</code></pre>
         <p>添加以下内容：</p>
         <pre><code>ACTION dolphin
@@ -115,25 +115,25 @@ Alias=display-manager.service</code></pre>
   WINDOW_TYPE NO_STDIO
 }</code></pre>
       <p>保存并退出。</p>
-      <p>Ctrl+Alt+F2 回到 CDE，打开 Chromium，找到并下载 dolphin.png，放到某个位置（比如家目录下的 Pictures）。CDE 的图标文件得是 .pm 格式的。需要把 .png 先转换成 .xpm，然后再直接改后缀名为 .pm。而且，需要三个不同大小的图标文件（.l.pm .m.pm .t.pm 分别对应 48x48 32x32 16x16）。因此，这里我们需要使用到 ImageMagick 工具。</p>
-      <p>Ctrl+Alt+F1 回到 tty，如果没有安装 ImageMagick 的话：</p>
+      <p>Ctrl+Alt+F2 回到 CDE，打开 Chromium，找到并下载 <code>dolphin.png</code>，放到某个位置（比如家目录下的 <code>Pictures</code>）。CDE 的图标文件得是 <code>.pm</code> 格式的。需要把 <code>.png</code> 先转换成 <code>.xpm</code>，然后再直接改后缀名为 <code>.pm</code>。而且，需要三个不同大小的图标文件（<code>.l.pm</code> <code>.m.pm</code> <code>.t.pm</code> 分别对应 <code>48x48</code> <code>32x32</code> <code>16x16</code>）。因此，这里我们需要使用到 ImageMagick 工具。</p>
+      <p>Ctrl+Alt+F1 回到 <code>tty</code>，如果没有安装 ImageMagick 的话：</p>
       <pre><code># pacman -S imagemagick</code></pre>
       <p>进入 Pictures 目录，转换格式：</p>
       <pre><code># cd ~/Pictures
 # magick dolphin.png -resize 48x48 dolphin.l.xpm
 # magick dolphin.png -resize 32x32 dolphin.m.xpm
 # magick dolphin.png -resize 16x16 dolphin.t.xpm</code></pre>
-      <p>然后把后缀名都改成 .pm：</p>
+      <p>然后把后缀名都改成 <code>.pm</code>：</p>
       <pre><code># mv dolphin.l.xpm dolphin.l.pm
 # mv dolphin.m.xpm dolphin.m.pm
 # mv dolphin.t.xpm dolphin.t.pm</code></pre>
-      <p>然后把这三个文件拷贝到 /usr/dt/appconfig/icons/C/ 目录下：</p>
+      <p>然后把这三个文件拷贝到 <code>/usr/dt/appconfig/icons/C/</code> 目录下：</p>
       <pre><code># cp dolphin.l.pm dolphin.m.pm dolphin.t.pm /usr/dt/appconfig/icons/C/</code></pre>
       <p>回到 CDE，登出账户然后再重新登入，就可以看到更改已经生效了。</p>
-      <p class="highlight">Create Action (2025-08-18)</p>
+      <h2>Create Action (2025-08-18)</h2>
       <p>后来我发现 Application Manager 的 Desktop Apps 分组里面有个 Create Action，是个用来创建 action 的 GUI 应用程序。你可以修改名称和图标，编辑 action 执行的命令，还可以选择窗口类型（GUI 或 CLI）。</p>
-      <img src="../pics/create_action.png" alt="CDE Create Action"></img>
-      <p>在 tty 中，之前用 ln -s 创建的符号链接是浅蓝色的，action 是绿色的。我不知道之前自己到底都是在干什么，但无论如何，这应该才是把 app 添加到 Application Manager 最为正确的方式。</p>
+      <img src="https://caffeine.ink/pics/create_action.png" alt="CDE Create Action"></img>
+      <p>在 <code>tty</code> 中，之前用 <code>ln -s</code> 创建的符号链接是浅蓝色的，action 是绿色的。我不知道之前自己到底都是在干什么，但无论如何，这应该才是把 app 添加到 Application Manager 最为正确的方式。</p>
       ]]>
     </content>
   </entry>

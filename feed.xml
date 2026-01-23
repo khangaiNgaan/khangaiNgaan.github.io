@@ -5,7 +5,7 @@
   <link href="https://caffeine.ink/" />
   <link href="https://caffeine.ink/feed.xml" rel="self" />
   <id>https://caffeine.ink/</id>
-  <updated>2026-01-19T22:30:00+08:00</updated>
+  <updated>2026-01-23T21:00:00+08:00</updated>
   <author>
     <name>khangai</name>
     <email>khangai@caffeine.ink</email>
@@ -16,7 +16,7 @@
     <link href="https://caffeine.ink/posts/gis-note-01.html" />
     <id>https://caffeine.ink/posts/arch_cde.html</id>
     <published>2025-05-01T11:46:46+08:00</published>
-    <updated>2025-08-21T17:43:19+08:00</updated>
+    <updated>2026-01-23T21:00:00+08:00</updated>
     <summary></summary>
     <content type="html">
       <![CDATA[
@@ -102,8 +102,8 @@ Alias=display-manager.service</code></pre>
         <p>在 Application Manager 中新建 Personal 文件夹，把 Dolphin 链接过来：</p>
         <pre><code># mkdir /usr/dt/appconfig/appmanager/C/Personal/
 # ln -s /usr/bin/dolphin /usr/dt/appconfig/appmanager/C/Personal/dolphin</code></pre>
-        <p>推荐在 root 账户操作。</p>
-        <p>在 /usr/dt/appconfig/types/C/ 中添加 <code>dolphin.dt</code> 并添加内容。</p>
+        <p>推荐在 <code>root</code> 账户操作。</p>
+        <p>在 <code>/usr/dt/appconfig/types/C/</code> 中添加 <code>dolphin.dt</code> 并添加内容。</p>
         <pre><code># vim /usr/dt/appconfig/types/C/dolphin.dt</code></pre>
         <p>添加以下内容：</p>
         <pre><code>ACTION dolphin

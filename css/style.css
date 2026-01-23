@@ -195,6 +195,7 @@ html:not(.os-macos) .date {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    user-select: none;
 }
 
 .os-macos .pagesEntrance {

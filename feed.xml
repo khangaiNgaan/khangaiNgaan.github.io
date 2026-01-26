@@ -5,7 +5,7 @@
   <link href="https://caffeine.ink/" />
   <link href="https://caffeine.ink/feed.xml" rel="self" />
   <id>https://caffeine.ink/</id>
-  <updated>2026-01-27T01:00:00+08:00</updated>
+  <updated>2026-01-27T04:00:00+08:00</updated>
   <author>
     <name>khangai</name>
     <email>khangai@caffeine.ink</email>
@@ -16,7 +16,7 @@
     <link href="https://caffeine.ink/posts/arch_cde.html" />
     <id>https://caffeine.ink/posts/arch_cde.html</id>
     <published>2025-05-01T11:46:46+08:00</published>
-    <updated>2026-01-27T01:00:00+08:00</updated>
+    <updated>2026-01-27T04:00:00+08:00</updated>
     <content type="html">
       <![CDATA[
         <p>通用桌面环境（Common Desktop Environment, CDE）是一个基于 Motif 的桌面环境，最初由 HP、IBM、Sun 等公司合作开发，在1990年代作为商用 Unix 工作站的标准桌面环境被广泛使用，直到2000年代初随着开源桌面环境（KDE, GNOME等）的兴起而被逐渐取代。2012年，CDE 宣布开源，随后被移植到 Linux 上，并被维护至今。</p>
@@ -29,7 +29,9 @@
         <h2>安装依赖</h2>
         <p>在安装 CDE 之前，需要先安装一些依赖包，这里是：</p>
         <pre><code># pacman -S xorg xorg-server-devel gcc dnsutils git libxinerama libxss ncurses openmotif rpcbind xbitmaps bison flex tcl</code></pre>
-        <p>还有 <code>ksh</code> 和 <code>ncompress</code>：</p>
+        <p>还有 <code>ksh</code> 和 <code>ncompress</code>：（<code>Arch 2026.01.01</code> 已可直接通过 pacman 安装）</p>
+        <pre><code># pacman -S ksh ncompress</code></pre>
+        <p>或</p>
         <pre><code># git clone https://aur.archlinux.org/ksh.git
 # git clone https://aur.archlinux.org/ncompress.git</code></pre>
         <p>然后进入这两个目录，编译安装：</p>
@@ -39,9 +41,9 @@
 # makepkg -si</code></pre>
         <p>如果你已经安装了 <code>yay</code> 也可用 <code>yay</code> 安装：</p>
         <pre><code># yay -S ksh ncompress</code></pre>
-        <p>手动创建 <code>/lib/cpp</code> 符号链接：</p>
+        <p>手动创建 <code>/lib/cpp</code> 符号链接：（<code>Arch 2026.01.01</code> 已不再需要）</p>
         <pre><code># ln -s /usr/bin/cpp /lib/cpp</code></pre>
-        <p>这是必要的，CDE 的编译过程依赖于 C 预处理器（<code>cpp</code>）可执行文件位于 <code>/lib/cpp</code> 这个路径。如果找不到这个符号链接，CDE 的编译就会失败。</p>
+        <p>这是必要的，CDE 的编译过程依赖于 C 预处理器（<code>cpp</code>）可执行文件位于 <code>/lib/cpp</code> 这个路径。</p>
         <h2>安装 CDE</h2>
         <p>登出 <code>root</code> 账户，登入你的用户账户，以避免使用 <code>root</code> 账户登录图形界面。</p>
         <pre><code># exit</code></pre>

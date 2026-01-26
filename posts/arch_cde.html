@@ -55,7 +55,9 @@
         <p class="highlight">安装依赖</p>
         <p>在安装 CDE 之前，需要先安装一些依赖包，这里是：</p>
         <pre><code># pacman -S xorg xorg-server-devel gcc dnsutils git libxinerama libxss ncurses openmotif rpcbind xbitmaps bison flex tcl</code></pre>
-        <p>还有 ksh 和 ncompress：</p>
+        <p>还有 ksh 和 ncompress：<span style="background-color: var(--text-color); color: var(--bg-color);">(!) Arch 2026.01.01 已可直接通过 pacman 安装</span></p>
+        <pre><code># pacman -S ksh ncompress</code></pre>
+        <p><span style="background-color: var(--text-color); color: var(--bg-color);">或</span></p>
         <pre><code># git clone https://aur.archlinux.org/ksh.git
 # git clone https://aur.archlinux.org/ncompress.git</code></pre>
         <p>然后进入这两个目录，编译安装：</p>
@@ -65,9 +67,9 @@
 # makepkg -si</code></pre>
         <p>如果你已经安装了 yay 也可用 yay 安装：</p>
         <pre><code># yay -S ksh ncompress</code></pre>
-        <p>手动创建 /lib/cpp 符号链接：</p>
+        <p>手动创建 /lib/cpp 符号链接：<span style="background-color: var(--text-color); color: var(--bg-color);">(!) Arch 2026.01.01 已不再需要</span></p>
         <pre><code># ln -s /usr/bin/cpp /lib/cpp</code></pre>
-        <p>这是必要的，CDE 的编译过程依赖于 C 预处理器（cpp）可执行文件位于 /lib/cpp 这个路径。如果找不到这个符号链接，CDE 的编译就会失败。</p>
+        <p>这是必要的，CDE 的编译过程依赖于 C 预处理器（cpp）可执行文件位于 /lib/cpp 这个路径。</p>
         <p class="highlight">安装 CDE</p>
         <p>登出 root 账户，登入你的用户账户，以避免使用 root 账户登录图形界面。</p>
         <pre><code># exit</code></pre>

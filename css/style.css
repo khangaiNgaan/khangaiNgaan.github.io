@@ -42,25 +42,15 @@ body {
     color: var(--text-color);
 }
 
-.os-macos .title {
-    font-family: 'Courier', 'STHeitiSC-Light','unifont', sans-serif;
-    font-size: 16px;
-    color: var(--text-color);
-} 
-html:not(.os-macos) .title {
+
+.title {
     font-family: 'unifont', sans-serif;
     font-size: 16px;
     color: var(--text-color);
 }
 
-.os-macos p {
-    font-family: 'Courier', 'STHeitiSC-Light','unifont', sans-serif;
-    font-size: 14px;
-    color: var(--text-color);
-    line-height: 2;
-    text-align: justify;
-}
-html:not(.os-macos) p {
+
+p {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     color: var(--text-color);
@@ -68,13 +58,7 @@ html:not(.os-macos) p {
     text-align: justify;
 }
 
-.os-macos .novel {
-    font-family: 'Courier', 'STSongti-SC-Regular', 'unifont', sans-serif;
-    font-size: 14px;
-    color: var(--text-color);
-    line-height: 2;
-}
-html:not(.os-macos) .novel {
+.novel {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     color: var(--text-color);
@@ -85,20 +69,7 @@ html:not(.os-macos) .novel {
     background-color: var(--pre-code-color);
 }
 
-.os-macos pre code {
-    display: block;
-    font-family: 'Courier New', 'STHeitiSC-Light', 'unifont';
-    font-size: 14px;
-    color: var(--text-color);
-    line-height: 2;
-    background-color: var(--pre-code-color);
-    padding: 10px;
-    overflow-x: auto;
-    white-space: pre;
-    scrollbar-width: 5px;
-    scrollbar-color: var(--scrollbar-color) var(--pre-code-color);
-}
-html:not(.os-macos) pre code {
+pre code {
     display: block;
     font-family: 'unifont', sans-serif;
     font-size: 14px;
@@ -141,25 +112,15 @@ a:hover {
     color: var(--bg-color);
 }
 
-.os-macos .copyright {
-    font-family: 'Courier New', 'unifont';
-    font-size: 12px;
-    color: var(--text-color);
-    line-height: 1;
-}
-html:not(.os-macos) .copyright {
+
+.copyright {
     font-family: 'unifont', sans-serif;
     font-size: 12px;
     color: var(--text-color);
     line-height: 1;
 }
 
-.os-macos .index {
-    font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
-    font-size: 14px;
-    line-height: 1.8;
-}
-html:not(.os-macos) .index {
+.index {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     line-height: 1.8;
@@ -172,13 +133,7 @@ html:not(.os-macos) .index {
     }
 }
 
-.os-macos .date {
-    font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
-    font-size: 14px;
-    text-align: right;
-    margin-top: 15px;
-}
-html:not(.os-macos) .date {
+.date {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     text-align: right;
@@ -198,39 +153,22 @@ html:not(.os-macos) .date {
     user-select: none;
 }
 
-.os-macos .pagesEntrance {
-    font-family: 'Courier', 'STHeitiSC-Light', 'unifont';
-    font-size: 14px;
-    color: var(--text-color);
-    line-height: 2;
-}
-html:not(.os-macos) .pagesEntrance {
+.pagesEntrance {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     color: var(--text-color);
     line-height: 2;
 }
 
-.os-macos .legacyEntrance {
-    font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
-    font-size: 14px;
-    text-align: right;
-    line-height: 2;
-}
-html:not(.os-macos) .legacyEntrance {
+
+.legacyEntrance {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     text-align: right;
     line-height: 2;
 }
 
-.os-macos li {
-    font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-html:not(.os-macos) li {
+li {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     line-height: 1.5;
@@ -241,13 +179,7 @@ html:not(.os-macos) li {
     height: auto;
 }
 
-.os-macos .back {
-    font-family: 'Courier', 'STHeitiSC-Light', 'unifont', sans-serif;
-    font-size: 14px;
-    margin-right: 10px;
-    margin-top: 15px;
-}
-html:not(.os-macos) .back {
+.back {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
     margin-right: 10px;

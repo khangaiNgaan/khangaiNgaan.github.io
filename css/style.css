@@ -14,6 +14,7 @@
     --highlight-color: #b7c2d0;
     --scrollbar-color: #b5c0ce;
     --pre-code-color: #ced9e3;
+    --border-color: #808ea1;
 }
 [data-theme="dark"] {
     --bg-color: #242931;
@@ -21,6 +22,7 @@
     --highlight-color: #444f5d;
     --scrollbar-color: #39424e;
     --pre-code-color: #2e3640;
+    --border-color: #555c68;
 }
 [data-theme="mono"] {
     --bg-color: #ffffff;
@@ -28,6 +30,7 @@
     --highlight-color: #cccccc;
     --pre-code-color: #eeeeee;
     --scrollbar-color: #dddddd;
+    --border-color: #777777;
 }
 
 body {
@@ -184,4 +187,12 @@ li {
     font-size: 14px;
     margin-right: 10px;
     margin-top: 15px;
+}
+
+.note {
+    font-family: 'unifont', sans-serif;
+    font-size: 14px;
+    color: var(--border-color);
+    line-height: 1.2;
+    user-select: none;
 }

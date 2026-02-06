@@ -34,7 +34,9 @@
 }
 
 body {
+    background-color: #d8e3ed;
     background-color: var(--bg-color);
+    color: #444f5d;
     color: var(--text-color);
 }
 
@@ -42,6 +44,7 @@ body {
     font-family: 'sentient';
     font-weight: bold;
     font-size: 16px;
+    color: #444f5d;
     color: var(--text-color);
 }
 
@@ -49,6 +52,7 @@ body {
 .title {
     font-family: 'unifont', sans-serif;
     font-size: 16px;
+    color: #444f5d;
     color: var(--text-color);
 }
 
@@ -56,6 +60,7 @@ body {
 p {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
+    color: #444f5d;
     color: var(--text-color);
     line-height: 2;
     text-align: justify;
@@ -64,11 +69,13 @@ p {
 .novel {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
+    color: #444f5d;
     color: var(--text-color);
     line-height: 2;
 }
 
 .textbox {
+    background-color: #ced9e3;
     background-color: var(--pre-code-color);
 }
 
@@ -76,8 +83,10 @@ pre code {
     display: block;
     font-family: 'unifont', sans-serif;
     font-size: 14px;
+    color: #444f5d;
     color: var(--text-color);
     line-height: 2;
+    background-color: #ced9e3;
     background-color: var(--pre-code-color);
     padding: 10px;
     overflow-x: auto;
@@ -87,11 +96,13 @@ pre code {
 }
 
 p.highlight {
+    background-color: #b7c2d0;
     background-color: var(--highlight-color);
     line-height: 1.6;
 }
 
 html {
+    background-color: #d8e3ed;
     background-color: var(--bg-color);
 }
 
@@ -102,6 +113,7 @@ html {
 }
 
 a {
+    color: #444f5d;
     color: var(--text-color);
 }
 
@@ -119,6 +131,7 @@ a:hover {
 .copyright {
     font-family: 'unifont', sans-serif;
     font-size: 12px;
+    color: #444f5d;
     color: var(--text-color);
     line-height: 1;
 }
@@ -159,6 +172,7 @@ a:hover {
 .pagesEntrance {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
+    color: #444f5d;
     color: var(--text-color);
     line-height: 2;
 }
@@ -192,6 +206,7 @@ li {
 .note {
     font-family: 'unifont', sans-serif;
     font-size: 14px;
+    color: #808ea1;
     color: var(--border-color);
     line-height: 1.2;
     user-select: none;

@@ -15,11 +15,6 @@
             font-family: unifont;
             src: url(/fonts/unifont.otf);
         }
-        @font-face {
-            font-family: sentient;
-            font-weight: bold;
-            src: url(/fonts/Sentient-Bold.otf);
-        }
 
         :root {
             --bg-color: #d8e3ed;
@@ -211,6 +206,8 @@
             <p>Pay attention to your digital wellbeing.</p>
             <p>Today</p>
             <pre><code id="stats-today">Loading...</code></pre>
+            <p>Yesterday</p>
+            <pre><code id="stats-yesterday">Loading...</code></pre>
             <p>This Month</p>
             <pre><code id="stats-month">Loading...</code></pre>
             <p>Overall</p>
@@ -298,7 +295,7 @@
                 setupQuery();
             } catch (error) {
                 console.error('Error fetching data:', error);
-                ['stats-today', 'stats-month', 'stats-overall', 'stats-custom'].forEach(id => {
+                ['stats-today', 'stats-yesterday', 'stats-month', 'stats-overall', 'stats-custom'].forEach(id => {
                     document.getElementById(id).innerText = 'Failed to load data.';
                 });
             }
@@ -306,10 +303,16 @@
 
         function renderAll() {
             if (!rawData) return;
-            const todayStr = new Date().toLocaleDateString('en-CA'); 
+            const now = new Date();
+            const todayStr = now.toLocaleDateString('en-CA'); 
+            
+            const yesterday = new Date(now);
+            yesterday.setDate(now.getDate() - 1);
+            const yesterdayStr = yesterday.toLocaleDateString('en-CA');
+
             const currentMonthStr = todayStr.substring(0, 7);
 
-            let todayStats = {}, monthStats = {}, overallStats = {};
+            let todayStats = {}, yesterdayStats = {}, monthStats = {}, overallStats = {};
             let playersSet = new Set();
 
             for (const [date, players] of Object.entries(rawData)) {
@@ -322,10 +325,14 @@
                     if (date === todayStr) {
                         todayStats[player] = (todayStats[player] || 0) + seconds;
                     }
+                    if (date === yesterdayStr) {
+                        yesterdayStats[player] = (yesterdayStats[player] || 0) + seconds;
+                    }
                 }
             }
 
             renderSection('stats-today', todayStats);
+            renderSection('stats-yesterday', yesterdayStats);
             renderSection('stats-month', monthStats);
             renderSection('stats-overall', overallStats);
 

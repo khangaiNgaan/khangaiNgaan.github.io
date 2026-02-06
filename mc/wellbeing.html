@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics - caffeine-Ink</title>
+    <meta name="theme-color" content="#d8e3ed" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#242931" media="(prefers-color-scheme: dark)">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+        @font-face {
+            font-family: unifont;
+            src: url(/fonts/unifont.otf);
+        }
+        @font-face {
+            font-family: sentient;
+            font-weight: bold;
+            src: url(/fonts/Sentient-Bold.otf);
+        }
+
+        :root {
+            --bg-color: #d8e3ed;
+            --text-color: #444f5d;
+            --highlight-color: #b7c2d0;
+            --scrollbar-color: #b5c0ce;
+            --pre-code-color: #ced9e3;
+            --border-color: #808ea1;
+        }
+        [data-theme="dark"] {
+            --bg-color: #242931;
+            --text-color: #e9f0f5;
+            --highlight-color: #444f5d;
+            --scrollbar-color: #39424e;
+            --pre-code-color: #2e3640;
+            --border-color: #555c68;
+        }
+        [data-theme="mono"] {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --highlight-color: #cccccc;
+            --pre-code-color: #eeeeee;
+            --scrollbar-color: #dddddd;
+            --border-color: #777777;
+        }
+
+        body {
+            max-width: 700px;
+            height: 100%;
+            margin: auto;
+            padding: 50px 20px ;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        html {
+            background-color: var(--bg-color);
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        p {
+            font-family: 'unifont', sans-serif;
+            font-size: 14px;
+            color: var(--text-color);
+            line-height: 2;
+            text-align: justify;
+        }
+        .title {
+            font-family: 'unifont', sans-serif;
+            font-size: 16px;
+            color: var(--text-color);
+        }
+        .box {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        a {
+            color: var(--text-color);
+        }
+        a:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+        ::selection {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+        .copyright {
+            font-family: 'unifont', sans-serif;
+            font-size: 12px;
+            color: var(--text-color);
+            line-height: 1;
+        }
+        @media (max-width: 800px) {
+            body {
+                padding: 10px;
+                margin: 20px 5px 10px 5px; 
+            }
+        }
+        .date {
+            font-family: 'unifont', sans-serif;
+            font-size: 14px;
+            text-align: right;
+            margin-top: 15px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .back {
+            font-family: 'unifont', sans-serif;
+            font-size: 14px;
+            margin-right: 10px;
+            margin-top: 15px;
+        }
+        pre code {
+            display: block;
+            font-family: 'unifont', sans-serif;
+            font-size: 14px;
+            color: var(--text-color);
+            line-height: 2;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            overflow-x: auto;
+            white-space: pre;
+            scrollbar-width: 5px;
+            scrollbar-color: var(--scrollbar-color) var(--bg-color);
+        }
+    </style>
+    <script>
+        // favicon.js
+        let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        handleDarkmode(darkModeMediaQuery);
+        function handleDarkmode(e) {
+            let darkModeOn = e.matches;
+            let favicons = document.querySelectorAll('link[rel="icon"]');
+            if (favicons.length === 0) {
+                return;
+            }
+            favicons.forEach(favicon => {
+                let sizes = favicon.getAttribute('sizes');
+                let baseName;
+                
+                if (sizes === '32x32') {
+                    baseName = 'favicon-32x32';
+                } else if (sizes === '16x16') {
+                    baseName = 'favicon-16x16';
+                } else {
+                    return;
+                }
+                if (darkModeOn) {
+                    favicon.href = '/' + baseName + '-dark.png'; 
+                } else {
+                    favicon.href = '/' + baseName + '.png'; 
+                }
+            });
+        }
+        darkModeMediaQuery.addEventListener('change', handleDarkmode);
+    </script>
+    <script>
+        (function() {
+            const savedMode = localStorage.getItem('theme-mode') || 'auto';
+            let isDark = false;
+            let isMono = false;
+            if (savedMode === 'auto') {
+                isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } else if (savedMode === 'mono') {
+                isMono = true;
+            } else {
+                isDark = (savedMode === 'dark');
+            }
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else if (isMono) {
+                document.documentElement.setAttribute('data-theme', 'mono');
+            }
+        })();
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="beed51c3-137a-47db-84ec-b76dcbd05158"></script>
+  </head>
+  <body>
+    <div class="box">
+        <div class="content">
+            <div class="header">  
+            <span class="title">Statistics</span>
+            <span class="date">caffeine-Ink / Salmonized Workspace</span>
+            </div>
+            <br>
+            <div class="header"><span class="back"><a href="./index.html">&lt; back to readme</a></span><span class="date"><a href="#" id="darkModeButton">auto</a></span></div>
+            <br>
+            <p>Pay attention to your digital wellbeing.</p>
+            <p>Today</p>
+            <pre><code id="stats-today">Loading...</code></pre>
+            <p>This Month</p>
+            <pre><code id="stats-month">Loading...</code></pre>
+            <p>Overall</p>
+            <pre><code id="stats-overall">Loading...</code></pre>
+
+            <p>Custom Query</p>
+            <div class="query-box">
+                <div class="query-row">
+                    <span>Since: <input type="date" id="query-since"></span>
+                    <span>Until: <input type="date" id="query-until"></span>
+                </div>
+                <div class="query-row" style="margin-top: 10px;">
+                    <span>From:  <select id="query-from"><option value="">All Players</option></select></span>
+                </div>
+            </div>
+            <pre><code id="stats-custom">Please select parameters to start query.</code></pre>
+            <p>Note: dates and times follow UTC+8.</p>
+        </div>
+        <div class="back"><a href="./index.html">&lt; back to readme</a></div>
+        <footer>
+            <br>
+            <div class="copyright">Copyright (c) 2025-2026 caffeine-Ink. All rights reserved.</div>
+        </footer>
+    </div>
+    <style>
+        .query-box {
+            font-family: 'unifont', sans-serif;
+            font-size: 14px;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            margin-bottom: 5px;
+        }
+        .query-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        .query-row span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .query-box input, .query-box select {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            font-family: 'unifont', sans-serif;
+            padding: 0 5px;
+            height: 26px;
+            line-height: 26px;
+            outline: none;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+        .query-box input:focus, .query-box select:focus {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        /* Date Picker Icon Visibility Fix */
+        [data-theme="dark"] .query-box input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+        .query-box input[type="date"]:focus::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+        [data-theme="dark"] .query-box input[type="date"]:focus::-webkit-calendar-picker-indicator {
+            filter: invert(0);
+        }
+    </style>
+    <script>
+        // Statistics Logic
+        const API_URL = 'https://wellbeing.caffeine.ink/stats'; 
+        let rawData = null;
+
+        async function fetchData() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('Network error');
+                rawData = await response.json();
+                renderAll();
+                setupQuery();
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                ['stats-today', 'stats-month', 'stats-overall', 'stats-custom'].forEach(id => {
+                    document.getElementById(id).innerText = 'Failed to load data.';
+                });
+            }
+        }
+
+        function renderAll() {
+            if (!rawData) return;
+            const todayStr = new Date().toLocaleDateString('en-CA'); 
+            const currentMonthStr = todayStr.substring(0, 7);
+
+            let todayStats = {}, monthStats = {}, overallStats = {};
+            let playersSet = new Set();
+
+            for (const [date, players] of Object.entries(rawData)) {
+                for (const [player, seconds] of Object.entries(players)) {
+                    playersSet.add(player);
+                    overallStats[player] = (overallStats[player] || 0) + seconds;
+                    if (date.startsWith(currentMonthStr)) {
+                        monthStats[player] = (monthStats[player] || 0) + seconds;
+                    }
+                    if (date === todayStr) {
+                        todayStats[player] = (todayStats[player] || 0) + seconds;
+                    }
+                }
+            }
+
+            renderSection('stats-today', todayStats);
+            renderSection('stats-month', monthStats);
+            renderSection('stats-overall', overallStats);
+
+            // Update Players Dropdown
+            const select = document.getElementById('query-from');
+            const sortedPlayers = Array.from(playersSet).sort();
+            sortedPlayers.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p;
+                opt.textContent = p;
+                select.appendChild(opt);
+            });
+        }
+
+        function setupQuery() {
+            const sinceInput = document.getElementById('query-since');
+            const untilInput = document.getElementById('query-until');
+            const fromSelect = document.getElementById('query-from');
+
+            const runQuery = () => {
+                const since = sinceInput.value;
+                const until = untilInput.value;
+                const from = fromSelect.value;
+
+                if (!since && !until && !from) {
+                    document.getElementById('stats-custom').innerText = "Please select parameters to start query.";
+                    return;
+                }
+
+                let customStats = {};
+                for (const [date, players] of Object.entries(rawData)) {
+                    // Since (inclusive)
+                    if (since && date < since) continue;
+                    // Until (exclusive)
+                    if (until && date >= until) continue;
+
+                    for (const [player, seconds] of Object.entries(players)) {
+                        // From (filter)
+                        if (from && player !== from) continue;
+                        customStats[player] = (customStats[player] || 0) + seconds;
+                    }
+                }
+                renderSection('stats-custom', customStats);
+            };
+
+            sinceInput.addEventListener('change', runQuery);
+            untilInput.addEventListener('change', runQuery);
+            fromSelect.addEventListener('change', runQuery);
+        }
+
+        function formatTime(seconds) {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = seconds % 60;
+            
+            if (h > 0) {
+                return `${h} hr${h > 1 ? 's' : ''} ${m} min${m > 1 ? 's' : ''}`;
+            } else if (m > 0) {
+                return `${m} min${m > 1 ? 's' : ''} ${s} s`;
+            } else {
+                return `${s} s`;
+            }
+        }
+
+        function renderSection(id, stats) {
+            const container = document.getElementById(id);
+            const sorted = Object.entries(stats).sort((a, b) => b[1] - a[1]);
+            if (sorted.length === 0) {
+                container.innerText = "No activity recorded.";
+                return;
+            }
+
+            const total = sorted.reduce((sum, curr) => sum + curr[1], 0);
+            let output = "";
+            const BAR_LEN = 25;
+
+            sorted.forEach(([player, seconds]) => {
+                const name = player.padEnd(25);
+                const time = formatTime(seconds).padEnd(20);
+                const percent = (seconds / total) * 100;
+                const filled = Math.round((percent / 100) * BAR_LEN);
+                const bar = "█".repeat(filled) + "░".repeat(BAR_LEN - filled);
+                
+                output += `${name}${time}${bar}   ${percent.toFixed(2).padStart(6)}%\n`;
+            });
+            container.innerText = output;
+        }
+
+        fetchData();
+
+        // theme.js
+        (function() {
+            const button = document.getElementById('darkModeButton');
+            const html = document.documentElement;
+            const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            const modes = ['light', 'dark', 'mono', 'auto'];
+            const savedMode = localStorage.getItem('theme-mode') || 'auto';
+            let currentModeIndex = modes.indexOf(savedMode);
+            if (currentModeIndex === -1) currentModeIndex = 3;
+            const applyTheme = (modeName) => {
+                let shouldBeDark = false;
+                let isMono = false;
+                if (modeName === 'auto') {
+                    shouldBeDark = darkModeMediaQuery.matches;
+                } else if (modeName === 'mono') {
+                    isMono = true;
+                } else {
+                    shouldBeDark = (modeName === 'dark');
+                }
+                if (shouldBeDark) {
+                    html.setAttribute('data-theme', 'dark');
+                } else if (isMono) {
+                    html.setAttribute('data-theme', 'mono');
+                } else {
+                    html.removeAttribute('data-theme');
+                }
+            };
+            const updateButtonText = () => {
+                if (button) {
+                    button.innerText = modes[currentModeIndex];
+                }
+            };
+            updateButtonText();
+            if (button) {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    currentModeIndex = (currentModeIndex + 1) % 4;
+                    const newMode = modes[currentModeIndex];
+                    localStorage.setItem('theme-mode', newMode);      
+                    updateButtonText();
+                    applyTheme(newMode);
+                });
+            }
+            darkModeMediaQuery.addEventListener('change', (e) => {
+                const currentSaved = localStorage.getItem('theme-mode') || 'auto';
+                if (currentSaved === 'auto') {
+                    applyTheme('auto');
+                }
+            });
+        })();
+    </script>
+  </body>
+</html>

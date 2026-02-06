@@ -15,11 +15,6 @@
             font-family: unifont;
             src: url(/fonts/unifont.otf);
         }
-        @font-face {
-            font-family: sentient;
-            font-weight: bold;
-            src: url(/fonts/Sentient-Bold.otf);
-        }
 
         :root {
             --bg-color: #d8e3ed;
@@ -55,23 +50,23 @@
             margin-bottom: 20px;
         }
         html {
-            background-color: var(--bg-color);
+            background-color: var(--bg-color), #d8e3ed;
         }
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-color), #d8e3ed;
+            color: var(--text-color), #444f5d;
         }
         p {
             font-family: 'unifont', sans-serif;
             font-size: 14px;
-            color: var(--text-color);
+            color: var(--text-color), #444f5d;
             line-height: 2;
             text-align: justify;
         }
         .title {
             font-family: 'unifont', sans-serif;
             font-size: 16px;
-            color: var(--text-color);
+            color: var(--text-color), #444f5d;
         }
         .box {
             display: flex;
@@ -79,20 +74,20 @@
             height: 100%;
         }
         a {
-            color: var(--text-color);
+            color: var(--text-color), #444f5d;
         }
         a:hover {
-            background-color: var(--text-color);
+            background-color: var(--text-color), #444f5d;
             color: var(--bg-color);
         }
         ::selection {
-            background-color: var(--text-color);
+            background-color: var(--text-color), #444f5d;
             color: var(--bg-color);
         }
         .copyright {
             font-family: 'unifont', sans-serif;
             font-size: 12px;
-            color: var(--text-color);
+            color: var(--text-color), #444f5d;
             line-height: 1;
         }
         @media (max-width: 800px) {
@@ -122,10 +117,10 @@
             display: block;
             font-family: 'unifont', sans-serif;
             font-size: 14px;
-            color: var(--text-color);
+            color: var(--text-color), #444f5d;
             line-height: 2;
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
+            background-color: var(--bg-color), #d8e3ed;
+            border: 1px solid var(--border-color), #808ea1;
             padding: 10px;
             overflow-x: auto;
             white-space: pre;

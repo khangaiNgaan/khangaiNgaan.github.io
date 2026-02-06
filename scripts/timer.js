@@ -1,17 +1,19 @@
 function calcdays() {
-    const startdate = new Date('2025-01-04T22:34:00+08:00');
-    const now = new Date();
+    // 2025-01-04T22:34:00+08:00
+    var starttime = 1736001240000;
+    var now = new Date().getTime();
 
-    const difference = now - startdate; 
+    var difference = now - starttime;
+    if (difference < 0) difference = 0;
 
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24))/(1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    var days = Math.floor(difference / 86400000);
+    var hours = Math.floor((difference % 86400000) / 3600000);
+    var minutes = Math.floor((difference % 3600000) / 60000);
+    var seconds = Math.floor((difference % 60000) / 1000);
 
     function formatTime(number) {
-    return number.toString().length < 2 ? '0' + number : number;
-}
+        return number < 10 ? '0' + number : number;
+    }
 
     return {
         days: days,

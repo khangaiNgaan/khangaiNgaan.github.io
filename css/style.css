@@ -118,12 +118,16 @@ a {
 }
 
 a:hover {
+    background-color: #444f5d;
     background-color: var(--text-color);
+    color: #d8e3ed;
     color: var(--bg-color);
 }
 
 ::selection {
+    background-color: #444f5d;
     background-color: var(--text-color);
+    color: #d8e3ed;
     color: var(--bg-color);
 }
 
